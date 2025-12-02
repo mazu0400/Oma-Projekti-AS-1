@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kokin näkymä</title>
+    <link rel="stylesheet" href="kokki.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Kokin näkymä</h1>
+      <button id="logoutBtn">Kirjaudu ulos</button>
+    </header>
+
+    <main>
+      <div id="ordersDiv">
+        <button id="refreshBtn">Päivitä tilaukset</button>
+        <table id="ordersTable">
+          <thead>
+            <tr>
+              <th>Aikaleima</th>
+              <th>Nimi</th>
+              <th>Puhelin</th>
+              <th>Sähköposti</th>
+              <th>Osoite</th>
+              <th>Kaupunki</th>
+              <th>Toimitustapa</th>
+              <th>Haluttu toimitusaika</th>
+              <th>Tuotteet</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </main>
+
+    <script type="module" src="js/kokki.js"></script>
+  </body>
+</html>

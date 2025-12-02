@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tietosuojaseloste</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #f9f9f9;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+
+      header {
+        background: #4a90e2;
+        color: white;
+        padding: 1rem 2rem;
+        text-align: center;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 1.8rem;
+      }
+
+      main {
+        max-width: 900px;
+        margin: 2rem auto;
+        padding: 1rem 2rem;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        color: #4a90e2;
+        margin-top: 2rem;
+      }
+
+      p,
+      li {
+        line-height: 1.6;
+        margin: 0.5rem 0;
+      }
+
+      ul {
+        padding-left: 1.5rem;
+      }
+
+      a {
+        color: #4a90e2;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      footer {
+        text-align: center;
+        padding: 1rem;
+        margin-top: 2rem;
+        background: #f0f0f0;
+        color: #555;
+      }
+
+      @media (max-width: 768px) {
+        main {
+          margin: 1rem;
+          padding: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Tietosuojaseloste</h1>
+    </header>
+
+    <main>
+      <p>
+        Tämä verkkokauppa käyttää asiakastietoja ja kirjautumista seuraavasti:
+      </p>
+
+      <h2>Rekisterinpitäjä</h2>
+      <p>Verkkokauppa: Matias Tolvanen</p>
+      <p>
+        Yhteystiedot:
+        <a>Matias.tolvanen13@gmail.com</a>
+      </p>
+
+      <h2>Kerättävät tiedot</h2>
+      <p>Asiakkaalta kerätään tilauksen yhteydessä:</p>
+      <ul>
+        <li>Nimi</li>
+        <li>Sähköposti</li>
+        <li>Osoite</li>
+        <li>Kaupunki</li>
+        <li>Puhelinnumero</li>
+        <li>Toimitustapa</li>
+        <li>Haluttu toimitusaika</li>
+      </ul>
+      <p>
+        Kokin kirjautuminen tapahtuu sähköpostilla ja salasanalla Firebase
+        Authenticationin avulla.
+      </p>
+
+      <h2>Tietojen käyttötarkoitus</h2>
+      <ul>
+        <li>
+          Asiakastietoja käytetään vain tilauksen käsittelyyn ja toimitukseen.
+        </li>
+        <li>
+          Kokin kirjautumista käytetään vain tilausten hallintaan turvallisesti.
+        </li>
+      </ul>
+
+      <h2>Tietojen säilytys</h2>
+      <ul>
+        <li>Asiakastiedot tallennetaan Firebase Firestoreen.</li>
+        <li>
+          Kirjautumistiedot säilytetään salattuna Firebase Authenticationissa.
+        </li>
+        <li>
+          Tietoja säilytetään vain niin kauan kuin tilauksen käsittely vaatii.
+        </li>
+      </ul>
+
+      <h2>Tietojen suojaaminen</h2>
+      <ul>
+        <li>Tiedot ovat suojattuja Firebasen tietoturvasäännöillä.</li>
+        <li>Tietojen siirto tapahtuu suojattuna HTTPS-yhteydellä.</li>
+        <li>Pääsy tietoihin on vain valtuutetulla henkilöstöllä (kokki).</li>
+      </ul>
+
+      <h2>Rekisteröidyn oikeudet</h2>
+      <p>Asiakkaalla on oikeus:</p>
+      <ul>
+        <li>Tarkastaa itseään koskevat tiedot</li>
+        <li>Pyytää tietojen korjaamista</li>
+        <li>Pyytää tietojen poistamista</li>
+      </ul>
+      <p>
+        Oikeuksia voi käyttää ottamalla yhteyttä sähköpostitse:
+        <a>Matias.tolvanen13@gmail.com</a>
+      </p>
+
+      <h2>Suostumus</h2>
+      <p>
+        Asiakas antaa tietojen käsittelylle suostumuksen hyväksymällä tietojen
+        keruun tilauksen yhteydessä.
+      </p>
+    </main>
+    <div class="BackButton">
+      <button>
+        <a href="index.html">Takaisin Etusivulle</a>
+      </button>
+    </div>
+    <footer>&copy; 2025 Matias Tolvanen</footer>
+  </body>
+</html>

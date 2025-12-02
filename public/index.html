@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pannukakkutilaukset</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="js/firebase-config.js"></script>
+    <script type="module" src="js/orders.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Pannukakkutilaukset</h1>
+      <nav>
+        <a href="#">Etusivu</a> | <a href="#">Meistä</a> |
+        <a href="kokki-login.html">Kokin näkymä</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero-osio -->
+      <section id="hero">
+        <div class="hero-content">
+          <p>Valitse suosikkisi ja tilaa helposti kotiin tai noudettavaksi.</p>
+        </div>
+      </section>
+
+      <!-- Tuotteet -->
+      <section id="products" class="product-grid"></section>
+    </main>
+
+    <!-- Ostoskori pop-up -->
+    <div id="cartPopup" class="hidden">
+      <div class="popup-content">
+        <span id="closeCart">&times;</span>
+        <h2>Ostoskorisi</h2>
+        <div id="cartItems"></div>
+        <p>Kokonaishinta: <span id="totalPrice">0</span> €</p>
+
+        <form id="orderForm">
+          <label>Nimi: <input type="text" id="customerName" required /></label>
+          <label
+            >Puhelin: <input type="text" id="customerPhone" required
+          /></label>
+          <label
+            >Sähköposti: <input type="text" id="customerEmail" required
+          /></label>
+          <label
+            >Osoite: <input type="text" id="customerAddress" required
+          /></label>
+          <label
+            >Kaupunki: <input type="text" id="customerCity" required
+          /></label>
+          <label
+            >Toimitustapa:
+            <select id="deliveryMethod" required>
+              <option value="nouto">Nouto</option>
+              <option value="toimitus">Toimitus</option>
+            </select>
+          </label>
+          <p>
+            HUOM! (VIIKOLLA TOIMITUKSET 7 JÄLKEEN JA VIIKONLOPPUNA KLO:22
+            JÄLKEEN)
+          </p>
+          <label
+            >Haluttu toimitusaika:
+            <input type="datetime-local" id="deliveryTime" required />
+          </label>
+
+          <label>
+            <input type="checkbox" id="consent" required />
+            Hyväksyn, että tietojani käytetään tilauksen käsittelyyn.
+          </label>
+
+          <p>
+            Lue
+            <a href="Tietosuojaseloste.html" target="_blank"
+              >tietosuojaseloste</a
+            >
+            ennen tilausta.
+          </p>
+
+          <button type="submit">Lähetä tilaus</button>
+        </form>
+      </div>
+    </div>
+
+    <button id="viewCartBtn">Siirry ostoskoriin</button>
+
+    <footer>
+      <p>
+        <a href="Tietosuojaseloste.html">Tietosuojaseloste</a>
+      </p>
+      <p>&copy; 2025 By Matias Tolvanen</p>
+      <p></p>
+    </footer>
+  </body>
+</html>
