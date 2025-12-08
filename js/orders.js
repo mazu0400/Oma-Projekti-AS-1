@@ -189,7 +189,7 @@ const PRODUCTS = [
     id: "milky_rolls",
     name: "Milky Cheese Rolls",
     price: 12,
-    img: "Image/header.1.jpg",
+    img: "Image/Tuotteet/Image/milky.cheese.rolls.jpg",
     category: "other",
   },
   {
@@ -217,7 +217,7 @@ const PRODUCTS = [
     id: "pandesal_classic",
     name: "Pandesal Classic",
     price: 10,
-    img: "Image/header.1.jpg",
+    img: "Image/Tuotteet/Image/Pandesal.classic.jpg",
     category: "other",
   },
   {
@@ -247,14 +247,14 @@ const PRODUCTS = [
     id: "span_classic",
     name: "Spanish Bread Classic",
     price: 10,
-    img: "Image/header.1.jpg",
+    img: "Image/Tuotteet/Image/spanish.bread.classic.jpg",
     category: "spanish",
   },
   {
     id: "span_munggo",
     name: "Spanish Bread Munggo",
     price: 10,
-    img: "Image/header.1.jpg",
+    img: "Image/Tuotteet/Image/spanish.bread.munggo.jpg",
     category: "spanish",
   },
   {
@@ -268,7 +268,7 @@ const PRODUCTS = [
     id: "ube_halaya",
     name: "Ube Halaya",
     price: 10,
-    img: "Image/header.1.jpg",
+    img: "Image/Tuotteet/Image/Ube.halaya.jpg",
     category: "spanish",
   },
   {
