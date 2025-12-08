@@ -24,8 +24,8 @@ header h1 {
 }
 
 header button {
-  background: #e74d3c79;
-  color: white;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 6px;

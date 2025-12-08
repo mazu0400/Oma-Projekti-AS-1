@@ -1,23 +1,68 @@
+:root {
+  /* Perusvärit */
+  --color-background: linear-gradient(
+    66deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 7%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  --color-text: #1f1f23;
+
+  /* Kontti */
+  --color-container-bg: linear-gradient(
+    54deg,
+    rgba(219, 189, 130, 0.3) 0%,
+    rgba(214, 181, 104, 0.4) 66%,
+    rgba(161, 103, 53, 0.3) 91%
+  );
+
+  /* Input kentät */
+  --color-input-bg: #fff1e8;
+  --color-input-border: #dbbd82;
+
+  /* Nappulat */
+  --color-btn-bg: linear-gradient(
+    0deg,
+    rgba(255, 221, 140, 1) 0%,
+    rgba(255, 237, 196, 1) 51%,
+    rgba(255, 237, 196, 1) 96%,
+    rgba(255, 221, 140, 1) 100%
+  );
+  --color-btn-hover-bg: #ff6f61;
+  --color-btn-text: #1f1f23;
+
+  /* Takaisin linkki */
+  --color-backhome-bg: linear-gradient(
+    0deg,
+    rgba(255, 221, 140, 1) 0%,
+    rgba(255, 237, 196, 1) 51%,
+    rgba(255, 237, 196, 1) 96%,
+    rgba(255, 221, 140, 1) 100%
+  );
+  --color-backhome-hover: #ff6f61;
+}
+
 /* ============================
-   Perusasetukset
-============================ */
+       Body
+=========================== */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: #f2f2f2; /* vaalea neutraali */
-  color: #333;
+  background: var(--color-background);
+  color: var(--color-text);
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  position: relative;
 }
 
 /* ============================
-     Kirjautumiskontti
-  ============================ */
+       Kirjautumiskontti
+=========================== */
 .login-container {
-  background: #ffffff;
+  background: var(--color-container-bg);
   padding: 2.5rem 3rem;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -34,61 +79,91 @@ body {
 
 .login-container h1 {
   margin-bottom: 1.5rem;
-  color: #3b3b3b;
+  color: var(--color-text);
   font-size: 2rem;
 }
 
 /* ============================
-     Input kentät
-  ============================ */
-.login-container input {
-  width: 100%;
+       Input kentät
+=========================== */
+#emailInput,
+#passwordInput {
+  width: 90%;
   padding: 0.75rem 1rem;
   margin-bottom: 1rem;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-input-border);
   font-size: 1rem;
   transition: border-color 0.3s, box-shadow 0.3s;
+  background: var(--color-input-bg);
 }
 
 .login-container input:focus {
   outline: none;
-  border-color: #ffd166; /* pehmeä pastelli */
+  border-color: #ffd166;
   box-shadow: 0 0 8px rgba(255, 209, 102, 0.4);
 }
 
 /* ============================
-     Kirjaudu-nappi
-  ============================ */
+       Kirjaudu-nappi
+=========================== */
 .login-container button {
   width: 100%;
   padding: 0.75rem 1rem;
   border-radius: 50px;
   border: none;
-  background: linear-gradient(135deg, #ffd166, #ffb347);
-  color: #333;
+  background: var(--color-btn-bg);
+  color: var(--color-btn-text);
   font-weight: bold;
   font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.2s, filter 0.2s;
+  transition: transform 0.2s, filter 0.2s, background 0.3s;
 }
 
 .login-container button:hover {
   transform: scale(1.05);
   filter: brightness(1.1);
+  background: var(--color-btn-hover-bg);
+  color: #fff;
 }
 
 /* ============================
-     Virheilmoitus
-  ============================ */
+       Virheilmoitus
+=========================== */
 #errorMsg {
   margin-top: 0.5rem;
   font-weight: bold;
+  color: red;
 }
 
 /* ============================
-     Responsiivisuus
-  ============================ */
+       Takaisin Etusivulle linkki
+=========================== */
+.back-home {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  background: var(--color-backhome-bg);
+  color: var(--color-text);
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.back-home:hover {
+  background: var(--color-backhome-hover);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================
+       Responsiivisuus
+=========================== */
 @media (max-width: 480px) {
   .login-container {
     padding: 2rem 1.5rem;

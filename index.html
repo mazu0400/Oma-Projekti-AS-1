@@ -1,98 +1,221 @@
 <!DOCTYPE html>
-<html lang="fi">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pannukakkutilaukset</title>
+    <title>Pinoy Delicacies</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="style.css" />
     <script type="module" src="./js/firebase-config.js"></script>
     <script type="module" src="./js/orders.js"></script>
   </head>
   <body>
     <header>
-      <h1>Pannukakkutilaukset</h1>
-      <nav>
-        <a href="#">Etusivu</a> | <a href="#">Meistä</a> |
-        <a href="kokki-login.html">Kokin näkymä</a>
+      <h1>Pinoy Delicacies</h1>
+      <button id="menu-toggle" class="burger">☰</button>
+      <nav id="nav-menu">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+          <a href="#" class="dropdown-toggle">Products ▾</a>
+          <div class="dropdown-content">
+            <a href="#ensaymada">Ensaymada</a>
+            <a href="#hopia">Hopia</a>
+            <a href="#other">Others</a>
+            <a href="#spanish">Spanish Bread</a>
+          </div>
+        </div>
+        <a href="Tietoja.html">About Us</a>
+        <a href="kokki-login.html">Chef View</a>
       </nav>
     </header>
-
     <main>
-      <!-- Hero-osio -->
+      <!-- Hero section -->
       <section id="hero">
         <div class="hero-content">
-          <p>Valitse suosikkisi ja tilaa helposti kotiin tai noudettavaksi.</p>
+          <!-- BACKGROUND IMAGE -->
+          <img src="Image/her.2.png" alt="Filipino food" class="hero-image2" />
+
+          <!-- LOGO -->
+          <img src="Image/hero.logo2.jpg" alt="logo" class="hero-logo" />
+
+          <!-- TEXT -->
+          <div class="hero-text">
+            <h1>Authentic Filipino treats from Finland</h1>
+            <h2>Products prepared according to local recipes</h2>
+            <p>
+              Choose your favorites and order easily for delivery or pickup.
+            </p>
+          </div>
         </div>
       </section>
+      <div class="parent">
+        <h3 class="h3">Products</h3>
+      </div>
+      <!-- Products -->
+      <div class="Ensaymada-products">
+        <h2 class="h2">Ensaymada</h2>
+        <section id="ensaymada" class="products"></section>
+      </div>
+      <div class="hopia-products">
+        <h2 class="h2">Hopia</h2>
+        <section id="hopia" class="products"></section>
+      </div>
+      <div class="other-products">
+        <h2 class="h2">Other Products</h2>
+        <section id="other" class="products"></section>
+      </div>
 
-      <!-- Tuotteet -->
-      <section id="products" class="product-grid"></section>
+      <div class="spanish-products">
+        <h2 class="h2">Spanish Bread</h2>
+        <section id="spanish" class="products"></section>
+      </div>
     </main>
 
-    <!-- Ostoskori pop-up -->
-    <div id="cartPopup" class="hidden">
-      <div class="popup-content">
+    <!-- Shopping cart pop-up -->
+    <div id="cartPopup" class="liquid-glass">
+      <div class="popup-content liquid-glass">
         <span id="closeCart">&times;</span>
-        <h2>Ostoskorisi</h2>
+        <h2>Your Shopping Cart</h2>
         <div id="cartItems"></div>
-        <p>Kokonaishinta: <span id="totalPrice">0</span> €</p>
+        <p>Total Price: <span id="totalPrice">0</span> €</p>
 
         <form id="orderForm">
-          <label>Nimi: <input type="text" id="customerName" required /></label>
-          <label
-            >Puhelin: <input type="text" id="customerPhone" required
-          /></label>
-          <label
-            >Sähköposti: <input type="text" id="customerEmail" required
-          /></label>
-          <label
-            >Osoite: <input type="text" id="customerAddress" required
-          /></label>
-          <label
-            >Kaupunki: <input type="text" id="customerCity" required
-          /></label>
-          <label
-            >Toimitustapa:
-            <select id="deliveryMethod" required>
-              <option value="nouto">Nouto</option>
-              <option value="toimitus">Toimitus</option>
+          <label>
+            Name:
+            <input type="text" name="customerName" id="customerName" required />
+          </label>
+          <label>
+            Phone:
+            <input
+              type="text"
+              name="customerPhone"
+              id="customerPhone"
+              required
+            />
+          </label>
+          <label>
+            Email:
+            <input
+              type="text"
+              name="customerEmail"
+              id="customerEmail"
+              required
+            />
+          </label>
+          <label>
+            Address:
+            <input
+              type="text"
+              name="customerAddress"
+              id="customerAddress"
+              required
+            />
+          </label>
+          <label>
+            City:
+            <input type="text" name="customerCity" id="customerCity" required />
+          </label>
+          <label>
+            Delivery Method:
+            <select name="deliveryMethod" id="deliveryMethod" required>
+              <option value="pickup">Pickup</option>
+              <option value="delivery">Delivery</option>
             </select>
           </label>
           <p>
-            HUOM! (VIIKOLLA TOIMITUKSET 7 JÄLKEEN JA VIIKONLOPPUNA KLO:22
-            JÄLKEEN)
+            NOTE! (DELIVERIES AFTER 7 PM ON WEEKDAYS AND AFTER 10 PM ON
+            WEEKENDS)
           </p>
-          <label
-            >Haluttu toimitusaika:
-            <input type="datetime-local" id="deliveryTime" required />
+          <label>
+            Desired Delivery Time:
+            <input
+              type="datetime-local"
+              name="deliveryTime"
+              id="deliveryTime"
+              required
+            />
           </label>
 
           <label>
-            <input type="checkbox" id="consent" required />
-            Hyväksyn, että tietojani käytetään tilauksen käsittelyyn.
+            <input type="checkbox" name="consent" id="consent" required />
+            I agree that my information will be used for order processing.
           </label>
 
           <p>
-            Lue
-            <a href="Tietosuojaseloste.html" target="_blank"
-              >tietosuojaseloste</a
-            >
-            ennen tilausta.
+            Read our
+            <a href="Tietosuojaseloste.html" target="_blank">privacy policy</a>
+            before placing an order.
           </p>
 
-          <button type="submit">Lähetä tilaus</button>
+          <button type="submit">Submit Order</button>
+          <button type="button" id="clearCartBtn">Clear Cart</button>
         </form>
       </div>
     </div>
 
-    <button id="viewCartBtn">Siirry ostoskoriin</button>
+    <button id="viewCartBtn" class="viewCartBtn">
+      <span class="cart-text">Go to cart</span>
+      <span class="cart-icon">🛒</span>
+    </button>
+
+    <div class="contact-container">
+      <h5>Contact Us</h5>
+
+      <div class="contact-item">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="contact-icon"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 011 1v3.5a1 1 0 01-1 1C10.29 22 2 13.71 2 3.5a1 1 0 011-1H6.5a1 1 0 011 1c0 1.35.26 2.67.76 3.88a1 1 0 01-.21 1.11l-2.43 2.3z"
+          />
+        </svg>
+        <p>Phone: 040 123 4567</p>
+      </div>
+
+      <div class="contact-item">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="contact-icon"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 2l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"
+          />
+        </svg>
+        <p>Email: info@pinoydelicacies.fi</p>
+      </div>
+
+      <div class="contact-item">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="contact-icon"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path
+            d="M12 2a7 7 0 00-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 00-7-7zm0 9.5a2.5 2.5 0 112.5-2.5 2.5 2.5 0 01-2.5 2.5z"
+          />
+        </svg>
+        <p>Address: Example Street 10, Helsinki</p>
+      </div>
+    </div>
 
     <footer>
-      <p>
-        <a href="Tietosuojaseloste.html">Tietosuojaseloste</a>
-      </p>
-      <p>&copy; 2025 By Matias Tolvanen</p>
-      <p></p>
+      <div class="footer">
+        <p>
+          <a href="Tietosuojaseloste.html">Privacy Policy</a>
+        </p>
+        <p>&copy; 2025 By Matias Tolvanen</p>
+        <p></p>
+      </div>
     </footer>
   </body>
 </html>

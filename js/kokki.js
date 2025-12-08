@@ -9,14 +9,13 @@ import {
   doc,
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
-// Tarkista että käyttäjä on kirjautunut
+// Tarkista kirjautuminen
 auth.onAuthStateChanged((user) => {
   if (!user) {
     window.location.href = "kokki-login.html";
   }
 });
 
-// DOM-elementit
 // DOM-elementit
 const logoutBtn = document.getElementById("logoutBtn");
 const refreshBtn = document.getElementById("refreshBtn");
@@ -28,6 +27,12 @@ const clearBtn = document.createElement("button");
 clearBtn.textContent = "Tyhjennä tilaukset";
 clearBtn.style.marginLeft = "10px";
 ordersDiv.insertBefore(clearBtn, ordersDiv.firstChild);
+
+// Tallenna Exceliin -nappi
+const exportBtn = document.createElement("button");
+exportBtn.textContent = "Tallenna Exceliin";
+exportBtn.style.marginLeft = "10px";
+ordersDiv.insertBefore(exportBtn, ordersDiv.firstChild);
 
 // Logout
 logoutBtn.addEventListener("click", async () => {
@@ -55,7 +60,32 @@ clearBtn.addEventListener("click", async () => {
   }
 });
 
-// 🌟 Funktio määritellään tässä
+// Tallenna Exceliin (CSV)
+exportBtn.addEventListener("click", () => {
+  let csv =
+    "Aikaleima,Nimi,Puhelin,Sähköposti,Osoite,Kaupunki,Toimitustapa,Haluttu toimitusaika,Tuotteet,Total\n";
+
+  const rows = document.querySelectorAll("#ordersTable tbody tr");
+  rows.forEach((row) => {
+    const cols = row.querySelectorAll("td");
+    const rowData = Array.from(cols)
+      .map((td) => `"${td.textContent}"`)
+      .join(",");
+    csv += rowData + "\n";
+  });
+
+  const blob = new Blob([csv], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "tilaukset.csv";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+});
+
+// Funktio tilausten lataukseen Firebasesta
 async function loadOrders() {
   ordersTableBody.innerHTML = "";
   try {
@@ -64,7 +94,7 @@ async function loadOrders() {
     const snapshot = await getDocs(q);
 
     if (snapshot.empty) {
-      ordersTableBody.innerHTML = "<tr><td colspan='6'>Ei tilauksia</td></tr>";
+      ordersTableBody.innerHTML = "<tr><td colspan='11'>Ei tilauksia</td></tr>";
       return;
     }
 
@@ -81,20 +111,31 @@ async function loadOrders() {
         <td>${data.customer?.email || ""}</td>
         <td>${data.customer?.address || ""}</td>
         <td>${data.customer?.city || ""}</td>
-
         <td>${data.delivery?.method || ""}</td>
         <td>${data.delivery?.time || ""}</td>
         <td>${productsText}</td>
         <td>${data.total || 0} €</td>
+        <td><button class="deleteBtn">Poista</button></td>
       `;
-
+      const deleteBtn = row.querySelector(".deleteBtn");
+      deleteBtn.addEventListener("click", async () => {
+        if (confirm("Haluatko varmasti poistaa tämän tilauksen?")) {
+          try {
+            await deleteDoc(doc(db, "orders", docSnap.id));
+            await loadOrders(); // Päivitä taulukko poiston jälkeen
+          } catch (err) {
+            console.error(err);
+            alert("Tilausta ei voitu poistaa!");
+          }
+        }
+      });
       ordersTableBody.appendChild(row);
     });
   } catch (e) {
     console.error(e);
-    ordersTableBody.innerHTML = `<tr><td colspan="6">Virhe latauksessa</td></tr>`;
+    ordersTableBody.innerHTML = `<tr><td colspan="11">Virhe latauksessa</td></tr>`;
   }
 }
 
-// 🌟 Kutsu funktio vasta nyt, kun se on määritelty
+// Kutsu funktio heti
 loadOrders();
