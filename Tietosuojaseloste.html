@@ -72,93 +72,122 @@
           margin: 1rem;
           padding: 1rem;
         }
+        header h1 {
+          font-size: 1.1rem;
+        }
+
+        h2 {
+          font-size: 0.9rem;
+          color: #4a90e2;
+          margin-top: 2rem;
+        }
+
+        p,
+        li {
+          font-size: 0.7rem;
+          line-height: 1.6;
+          margin: 0.5rem 0;
+        }
+
+        ul {
+          font-size: 0.7rem;
+          padding-left: 1.5rem;
+        }
+
+        a {
+          font-size: 0.7rem;
+          color: #4a90e2;
+          text-decoration: none;
+        }
+        footer {
+          font-size: 0.7rem;
+        }
       }
     </style>
   </head>
   <body>
     <header>
-      <h1>Tietosuojaseloste</h1>
+      <h1>Privacy Policy</h1>
     </header>
 
     <main>
       <p>
-        Tämä verkkokauppa käyttää asiakastietoja ja kirjautumista seuraavasti:
+        This online store uses customer data and login information as follows:
       </p>
 
-      <h2>Rekisterinpitäjä</h2>
-      <p>Verkkokauppa: Matias Tolvanen</p>
+      <h2>Data Controller</h2>
+      <p>Online Store: Matias Tolvanen</p>
       <p>
-        Yhteystiedot:
+        Contact:
         <a>Matias.tolvanen13@gmail.com</a>
       </p>
 
-      <h2>Kerättävät tiedot</h2>
-      <p>Asiakkaalta kerätään tilauksen yhteydessä:</p>
+      <h2>Data Collected</h2>
+      <p>Customer data is collected during the order process:</p>
       <ul>
-        <li>Nimi</li>
-        <li>Sähköposti</li>
-        <li>Osoite</li>
-        <li>Kaupunki</li>
-        <li>Puhelinnumero</li>
-        <li>Toimitustapa</li>
-        <li>Haluttu toimitusaika</li>
+        <li>Name</li>
+        <li>Email</li>
+        <li>Address</li>
+        <li>City</li>
+        <li>Phone number</li>
+        <li>Delivery method</li>
+        <li>Preferred delivery time</li>
       </ul>
       <p>
-        Kokin kirjautuminen tapahtuu sähköpostilla ja salasanalla Firebase
-        Authenticationin avulla.
+        Chef login is done via email and password using Firebase Authentication.
       </p>
 
-      <h2>Tietojen käyttötarkoitus</h2>
+      <h2>Purpose of Data Processing</h2>
       <ul>
         <li>
-          Asiakastietoja käytetään vain tilauksen käsittelyyn ja toimitukseen.
+          Customer data is used only for processing and delivering orders.
+        </li>
+        <li>Chef login is used only for securely managing orders.</li>
+      </ul>
+
+      <h2>Data Storage</h2>
+      <ul>
+        <li>Customer data is stored in Firebase Firestore.</li>
+        <li>
+          Login credentials are stored securely in Firebase Authentication.
         </li>
         <li>
-          Kokin kirjautumista käytetään vain tilausten hallintaan turvallisesti.
+          Data is retained only as long as necessary to process the order.
         </li>
       </ul>
 
-      <h2>Tietojen säilytys</h2>
+      <h2>Data Protection</h2>
       <ul>
-        <li>Asiakastiedot tallennetaan Firebase Firestoreen.</li>
-        <li>
-          Kirjautumistiedot säilytetään salattuna Firebase Authenticationissa.
-        </li>
-        <li>
-          Tietoja säilytetään vain niin kauan kuin tilauksen käsittely vaatii.
-        </li>
+        <li>Data is protected by Firebase security rules.</li>
+        <li>Data transmission occurs over secure HTTPS connections.</li>
+        <li>Access to data is limited to authorized personnel (chef).</li>
       </ul>
 
-      <h2>Tietojen suojaaminen</h2>
+      <h2>Rights of the Data Subject</h2>
+      <p>Customers have the right to:</p>
       <ul>
-        <li>Tiedot ovat suojattuja Firebasen tietoturvasäännöillä.</li>
-        <li>Tietojen siirto tapahtuu suojattuna HTTPS-yhteydellä.</li>
-        <li>Pääsy tietoihin on vain valtuutetulla henkilöstöllä (kokki).</li>
-      </ul>
-
-      <h2>Rekisteröidyn oikeudet</h2>
-      <p>Asiakkaalla on oikeus:</p>
-      <ul>
-        <li>Tarkastaa itseään koskevat tiedot</li>
-        <li>Pyytää tietojen korjaamista</li>
-        <li>Pyytää tietojen poistamista</li>
+        <li>Access their personal data</li>
+        <li>Request correction of their data</li>
+        <li>Request deletion of their data</li>
       </ul>
       <p>
-        Oikeuksia voi käyttää ottamalla yhteyttä sähköpostitse:
+        These rights can be exercised by contacting via email:
         <a>Matias.tolvanen13@gmail.com</a>
       </p>
 
-      <h2>Suostumus</h2>
+      <h2>Consent</h2>
       <p>
-        Asiakas antaa tietojen käsittelylle suostumuksen hyväksymällä tietojen
-        keruun tilauksen yhteydessä.
+        The customer gives consent for data processing by accepting the
+        collection of data during the order process.
       </p>
     </main>
+
     <div class="BackButton">
       <button>
-        <a href="index.html">Takaisin Etusivulle</a>
+        <a href="index.html">Back to Homepage</a>
       </button>
     </div>
+
     <footer>&copy; 2025 Matias Tolvanen</footer>
   </body>
 </html>

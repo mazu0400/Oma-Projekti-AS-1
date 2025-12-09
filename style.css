@@ -15,10 +15,15 @@
     rgba(214, 181, 104, 1) 100%
   );
 
-  --color-header-hover: #ff6f61;
+  --color-header-hover: linear-gradient(
+    90deg,
+    rgba(156, 127, 95, 1) 0%,
+    rgba(191, 148, 92, 1) 50%,
+    rgba(156, 127, 95, 1) 100%
+  );
 
   /* Dropdown */
-  --color-dropdown-bg: #fff0eb;
+  --color-dropdown-bg: #fbfbfb;
 
   /* Hero */
   --color-hero-text-bg: rgba(0, 0, 0, 0.4);
@@ -49,13 +54,28 @@
     rgba(255, 221, 140, 1) 100%
   );
   --color-btn-text: #1f1f23;
-  --color-btn-hover-bg: #ff6f61;
+  --color-btn-hover-bg: linear-gradient(
+    90deg,
+    rgba(156, 127, 95, 1) 0%,
+    rgba(191, 148, 92, 1) 50%,
+    rgba(156, 127, 95, 1) 100%
+  );
 
   /* Cart popup */
   --color-cart-bg: #ffffff;
   --color-cart-overlay: rgba(0, 0, 0, 0.35);
-  --color-cart-close: #ff6f61;
-  --color-cart-close-hover: #ff3b2f;
+  --color-cart-close: linear-gradient(
+    90deg,
+    rgba(156, 127, 95, 1) 0%,
+    rgba(191, 148, 92, 1) 50%,
+    rgba(156, 127, 95, 1) 100%
+  );
+  --color-cart-close-hover: linear-gradient(
+    90deg,
+    rgba(156, 127, 95, 1) 0%,
+    rgba(191, 148, 92, 1) 50%,
+    rgba(156, 127, 95, 1) 100%
+  );
 
   /* Footer */
   --color-footer-bg: linear-gradient(

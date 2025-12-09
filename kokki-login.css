@@ -1,10 +1,9 @@
 :root {
   /* Perusvärit */
   --color-background: linear-gradient(
-    66deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(9, 9, 121, 1) 7%,
-    rgba(0, 212, 255, 1) 100%
+    0deg,
+    rgba(219, 189, 130, 0.369) 0%,
+    rgba(219, 189, 130, 0.436) 100%
   );
   --color-text: #1f1f23;
 
@@ -24,22 +23,32 @@
   --color-btn-bg: linear-gradient(
     0deg,
     rgba(255, 221, 140, 1) 0%,
-    rgba(255, 237, 196, 1) 51%,
+    rgba(255, 237, 196, 1) 0%,
     rgba(255, 237, 196, 1) 96%,
     rgba(255, 221, 140, 1) 100%
   );
-  --color-btn-hover-bg: #ff6f61;
+  --color-btn-hover-bg: linear-gradient(
+    90deg,
+    rgba(156, 127, 95, 1) 0%,
+    rgba(191, 148, 92, 1) 50%,
+    rgba(156, 127, 95, 1) 100%
+  );
   --color-btn-text: #1f1f23;
 
   /* Takaisin linkki */
   --color-backhome-bg: linear-gradient(
     0deg,
     rgba(255, 221, 140, 1) 0%,
-    rgba(255, 237, 196, 1) 51%,
+    rgba(255, 237, 196, 1) 0%,
     rgba(255, 237, 196, 1) 96%,
     rgba(255, 221, 140, 1) 100%
   );
-  --color-backhome-hover: #ff6f61;
+  --color-backhome-hover: linear-gradient(
+    90deg,
+    rgba(156, 127, 95, 1) 0%,
+    rgba(191, 148, 92, 1) 50%,
+    rgba(156, 127, 95, 1) 100%
+  );
 }
 
 /* ============================
