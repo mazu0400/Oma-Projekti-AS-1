@@ -335,12 +335,17 @@ header nav a:hover {
   gap: 1.5rem;
   padding: 20px;
 }
-
 .product-card {
   background: var(--color-card-bg);
   padding: 1rem;
+  width: 100%; /* kortti täyttää sarakkeen */
+  max-width: 230px; /* estää korttia venymästä liikaa */
+  box-sizing: border-box; /* padding ei lisää leveyttä */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* sisältö keskelle */
+  margin: 0 auto; /* keskittää kortin sarakkeessa */
   border-radius: 15px;
-  text-align: center;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
   transition: 0.2s;
 }
@@ -597,10 +602,12 @@ footer .footer a:hover {
 /* ===================== Responsiivisuus ===================== */
 @media (max-width: 768px) {
   .viewCartBtn {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 35px;
     border-radius: 50%;
-
+    position: fixed;
+    bottom: 15px;
+    right: 3px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -613,19 +620,82 @@ footer .footer a:hover {
 
   .viewCartBtn .cart-icon {
     display: block;
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height: 1;
   }
 
   .contact-container {
-    width: 90%;
-    padding: 15px;
+    width: 80%;
+    padding: 20px;
   }
   .contact-container h5 {
     font-size: 1.1rem;
   }
   .contact-container p {
+    font-size: 0.7rem;
+  }
+  .product-card img {
+    max-width: 100%;
+    height: 100px;
+    border-radius: 8px;
+    margin-bottom: 0.2rem;
+  }
+  .product-card {
+    width: 100%; /* kortti täyttää sarakkeen leveydellä */
+    max-width: 150px; /* mutta ei veny liian isoksi */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* sisältö keskelle */
+  }
+
+  button.minus,
+  button.plus {
+    max-width: 10px !important;
+    height: 10px;
     font-size: 0.9rem;
+    padding: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .product-card .qty {
+    min-width: 24px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+  }
+  .product-card > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.1rem;
+  }
+
+  /* Lisää ostoskoriin -nappi */
+
+  .product-card .add-to-cart {
+    padding: 0.3rem 0.55rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.3px;
+  }
+  #ensaymada,
+  #hopia,
+  #other,
+  #spanish {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(2, 1fr); /* 2 korttia vierekkäin */
+    width: 100%;
+    max-width: 360px; /* ei veny yli ruudun pienillä näytöillä */
+    margin: 0 auto; /* keskittää gridin näytölle */
+    justify-items: center; /* keskittää kortit sarakkeissa */
+    box-sizing: border-box;
+    padding: 0; /* vähän tilaa reunoille */
   }
 }
 @media (max-width: 900px) {
@@ -675,7 +745,7 @@ footer .footer a:hover {
   .hopia-products h2,
   .other-products h2,
   .spanish-products h2 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 
@@ -685,10 +755,10 @@ footer .footer a:hover {
     font-size: 1.1rem;
   }
   .product-card h3 {
-    font-size: 0.95rem;
+    font-size: 0.7rem;
   }
   .product-card p {
-    font-size: 0.85rem;
+    font-size: 0.7rem;
   }
   #hero {
     height: 450px;
@@ -739,12 +809,6 @@ footer .footer a:hover {
     font-size: 1.5rem;
     margin-top: 0;
   }
-
-  #cartPopup .popup-content {
-    width: 95% !important;
-    max-width: 350px !important;
-    padding: 0.8rem !important;
-  }
 }
 @media (max-width: 768px) {
   footer .footer {
@@ -756,6 +820,55 @@ footer .footer a:hover {
 
   footer .footer a {
     padding: 0.25rem 0.5rem;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+  }
+  footer .footer p {
+    font-size: 0.7rem;
+  }
+}
+/* RESPONSIVE: Puhelimet ja pienet näytöt */
+@media (max-width: 480px) {
+  /* Popup keskitys ja skaalaus */
+  #cartPopup .popup-content {
+    height: 90%;
+    width: 80%;
+    max-width: 360px;
+    padding: 1rem;
+    border-radius: 14px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  #orderForm p {
+    font-size: 0.75rem;
+  }
+  #orderForm label {
+    font-size: 0.95rem;
+  }
+  /* Close-ikoni hieman pienemmäksi ja lähemmäs reunaa */
+  #cartPopup #closeCart {
+    top: 8px;
+    right: 10px;
+    font-size: 0.8rem;
+  }
+
+  /* Lomakekentät isommilla kosketusalueilla */
+  #orderForm input,
+  #orderForm select {
+    padding: 0.3rem;
+    font-size: 0.8rem;
+  }
+
+  /* Painike isommaksi ja helpommaksi klikata */
+  #orderForm button {
+    padding: 0.8rem;
+    font-size: 0.7rem;
+    border-radius: 10px;
+  }
+
+  /* BackButton keskitettynä ja isommalla painikkeella */
+  .BackButton button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.05rem;
+    border-radius: 10px;
   }
 }
