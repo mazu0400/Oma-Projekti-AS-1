@@ -71,6 +71,10 @@
   --color-liquid-hover-bg: rgba(255, 255, 255, 0.25);
   --color-liquid-border: rgba(255, 255, 255, 0.3);
 }
+html {
+  touch-action: manipulation;
+}
+
 h1,
 h2,
 h3,
@@ -745,7 +749,7 @@ footer .footer a:hover {
   .hopia-products h2,
   .other-products h2,
   .spanish-products h2 {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }
 
