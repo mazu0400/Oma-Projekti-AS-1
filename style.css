@@ -282,14 +282,14 @@ header nav a:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; /* teksti vasemmalle ikonien kanssa */
+  align-items: center;
   text-align: left;
   width: 40%;
   border-radius: 40px;
   height: 100%;
   background: var(--color-add-btn-cd);
   padding: 20px;
-  margin: 0 auto; /* keskitys vaakasuunnassa */
+  margin: 0 auto;
   font-size: 1.2rem;
   margin-bottom: 70px;
   margin-top: 70px;
@@ -298,25 +298,25 @@ header nav a:hover {
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 10px; /* etäisyys ikonien ja tekstin välillä */
+  gap: 10px;
   margin-bottom: 15px;
 }
 
 .contact-icon {
   width: 24px;
   height: 24px;
-  color: var(--color-btn-hover-bg); /* käytä korostusväriä */
+  color: var(--color-btn-hover-bg);
   flex-shrink: 0;
 }
 .parent {
   background: var(--color-header-bg);
   padding: 20px;
-  text-align: center; /* Vaakakeskitys */
+  text-align: center;
 }
 
 .parent h3 {
   font-size: 1.8rem;
-  margin: 0; /* Poistaa oletusmarginaalit, jotta keskitys on siisti */
+  margin: 0;
 }
 
 /* Tuotekortit */
@@ -362,13 +362,13 @@ header nav a:hover {
 .product-card {
   background: var(--color-card-bg);
   padding: 1rem;
-  width: 100%; /* kortti täyttää sarakkeen */
-  max-width: 230px; /* estää korttia venymästä liikaa */
-  box-sizing: border-box; /* padding ei lisää leveyttä */
+  width: 100%;
+  max-width: 230px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: center; /* sisältö keskelle */
-  margin: 0 auto; /* keskittää kortin sarakkeessa */
+  align-items: center;
+  margin: 0 auto;
   border-radius: 15px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
   transition: 0.2s;
@@ -559,6 +559,11 @@ button:hover,
   color: var(--color-btn-text);
   font-size: 1rem;
 }
+input,
+textarea,
+select {
+  caret-color: #000; /* että kursori näkyy varmasti */
+}
 
 /* BackButton */
 .BackButton {
@@ -576,15 +581,15 @@ button:hover,
 }
 
 /* Footer */
-/* ===================== Footer ===================== */
+
 footer .footer {
   display: flex;
-  justify-content: space-between; /* ensimmäinen vasemmalla, toinen keskellä, kolmas oikealla */
+  justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   background: var(--color-footer-bg);
   color: var(--color-footer-text);
-  flex-wrap: nowrap; /* isoilla näytöillä pysyvät samalla rivillä */
+  flex-wrap: nowrap;
 }
 
 footer .footer p {
@@ -623,7 +628,7 @@ footer .footer a:hover {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
 }
-/* ===================== Responsiivisuus ===================== */
+
 @media (max-width: 768px) {
   .viewCartBtn {
     width: 30px;
@@ -635,7 +640,7 @@ footer .footer a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0; /* tärkeä ettei siirrä iconia */
+    padding: 0;
   }
 
   .viewCartBtn .cart-text {
@@ -665,11 +670,11 @@ footer .footer a:hover {
     margin-bottom: 0.2rem;
   }
   .product-card {
-    width: 100%; /* kortti täyttää sarakkeen leveydellä */
-    max-width: 150px; /* mutta ei veny liian isoksi */
+    width: 100%;
+    max-width: 150px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* sisältö keskelle */
+    align-items: center;
   }
 
   button.minus,
@@ -713,13 +718,13 @@ footer .footer a:hover {
   #spanish {
     display: grid;
     gap: 0.5rem;
-    grid-template-columns: repeat(2, 1fr); /* 2 korttia vierekkäin */
+    grid-template-columns: repeat(2, 1fr);
     width: 100%;
-    max-width: 360px; /* ei veny yli ruudun pienillä näytöillä */
-    margin: 0 auto; /* keskittää gridin näytölle */
-    justify-items: center; /* keskittää kortit sarakkeissa */
+    max-width: 360px;
+    margin: 0 auto;
+    justify-items: center;
     box-sizing: border-box;
-    padding: 0; /* vähän tilaa reunoille */
+    padding: 0;
   }
 }
 @media (max-width: 900px) {
@@ -801,7 +806,7 @@ footer .footer a:hover {
   }
 
   .hero-text {
-    position: static !important; /* siirretään tekstin pois kuvan päältä */
+    position: static !important;
     background: none;
     color: black;
     margin: 0;
@@ -836,8 +841,8 @@ footer .footer a:hover {
 }
 @media (max-width: 768px) {
   footer .footer {
-    flex-direction: column; /* allekkain */
-    align-items: flex-start; /* vasemmalle */
+    flex-direction: column;
+    align-items: flex-start;
     gap: 0.5rem;
     padding: 1rem;
   }

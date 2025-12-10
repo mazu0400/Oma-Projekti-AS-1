@@ -117,12 +117,12 @@ h4 {
 /* ===================== Footer ===================== */
 footer .footer {
   display: flex;
-  justify-content: space-between; /* ensimmäinen vasemmalla, toinen keskellä, kolmas oikealla */
+  justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
 
   color: var(--color-footer-text);
-  flex-wrap: nowrap; /* isoilla näytöillä pysyvät samalla rivillä */
+  flex-wrap: nowrap;
 }
 
 footer .footer p {
@@ -147,8 +147,8 @@ footer .footer a:hover {
 /* ===================== Responsiivisuus ===================== */
 @media (max-width: 768px) {
   footer .footer {
-    flex-direction: column; /* allekkain */
-    align-items: flex-start; /* vasemmalle */
+    flex-direction: column;
+    align-items: flex-start;
     gap: 0.5rem;
     padding: 1rem;
   }
