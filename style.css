@@ -873,6 +873,11 @@ footer .footer a:hover {
   #orderForm input {
     font-size: 16px;
   }
+  @supports (-webkit-touch-callout: none) {
+    #cartPopup * {
+      transform: none !important;
+    }
+  }
 
   #orderForm label {
     font-size: 0.95rem;
