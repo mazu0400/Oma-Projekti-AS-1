@@ -454,6 +454,17 @@ clearCartBtn.addEventListener("click", () => {
 
 orderForm.addEventListener("submit", async (e) => {
   e.preventDefault();
+  const selectedDate = new Date(deliveryTimeInput.value);
+
+  const minDate = new Date();
+  minDate.setDate(minDate.getDate() + 1);
+  minDate.setHours(0, 0, 0, 0);
+
+  if (selectedDate < minDate) {
+    alert("Please select a delivery date from tomorrow onwards.");
+    return;
+  }
+
   if (cart.length === 0) return alert("Your cart is empty.");
 
   const name = document.getElementById("customerName").value.trim();
