@@ -11,7 +11,7 @@
   --color-header-bg: linear-gradient(
     0deg,
     rgba(214, 181, 104, 1) 0%,
-    rgba(161, 103, 53, 0.44) 49%,
+    rgba(161, 103, 53, 0.654) 49%,
     rgba(214, 181, 104, 1) 100%
   );
 
@@ -76,6 +76,7 @@
     rgba(191, 148, 92, 1) 50%,
     rgba(156, 127, 95, 1) 100%
   );
+--color-cart-bg:white;
 
   /* Footer */
   --color-footer-bg: linear-gradient(
@@ -117,14 +118,21 @@ body {
 header {
   background: var(--color-header-bg);
   color: var(--color-text);
-  padding: 1rem 2rem;
+  padding: 1rem 0rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed; /* Pysyy paikallaan */
+  left: 0;
+  width: 100%;
+  z-index: 100; /* Varmistaa, että header näkyy muiden elementtien päällä */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
 }
 
 header h1 {
   margin: 0;
+  padding: 0px 20px;
   font-size: 1.8rem;
 }
 
@@ -143,6 +151,7 @@ header nav a:hover {
 #nav-menu {
   display: flex;
   gap: 1rem;
+  margin-left: auto;
 }
 
 #nav-menu a {
@@ -217,9 +226,9 @@ header nav a:hover {
 .hero-logo {
   position: absolute;
   border-radius: 50%;
-  top: 20px;
+  top: 80px;
   left: 20px;
-  width: 200px;
+  width: 180px;
   z-index: 3;
   filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.7));
 }
@@ -461,10 +470,19 @@ header nav a:hover {
   transform: scale(1.05);
   filter: brightness(1.1);
 }
+#topBtn {
+  position: fixed;
+  bottom: 0px;
+  right: 20px;
+  padding: 10px 14px;
+  font-size: 16px;
+  cursor: pointer;
+  display: none; /* piilossa aluksi */
+  z-index: 1000;
+}
 
 /* Nappien yleinen tyyli */
 button,
-#viewCartBtn,
 #orderForm button,
 .BackButton button {
   background: var(--color-btn-bg);
@@ -480,7 +498,6 @@ button,
 }
 
 button:hover,
-#viewCartBtn:hover,
 #orderForm button:hover,
 .BackButton button:hover {
   background: var(--color-btn-hover-bg);
@@ -488,14 +505,56 @@ button:hover,
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 .viewCartBtn {
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
-  z-index: 100;
+  display: flex;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-right: 20px;
+  margin-left: 20px;
+  background: var(--color-cart-bg);
+  color: var(--color-btn-text);
+  border: none;
+  font-size: 0.8rem;
+  border-radius: 8px;
+  padding: 0 14px 0 10px;
+  font-weight: bold;
+  cursor: pointer;
+text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+.cart-count {
+  position: absolute;
+  top: -9px;
+  right: -6px;
+
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  font-size: 0.85rem;
+  font-weight: bold;
+
+  display: none; /* piilossa kun 0 */
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
 }
 
 .viewCartBtn .cart-icon {
-  display: none;
+  display: inline;
+}
+.popup-content{
+  width: 70%;
+  height: 100%;
+  max-height: 80vh; /* korkeus rajattu, scrollataan jos sisältö ylittää */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* smooth scroll iOS:ssä */
+
 }
 /* Ostoskori pop-up */
 #cartPopup {
@@ -513,6 +572,7 @@ button:hover,
 
 #cartPopup .popup-content {
   background: var(--color-cart-bg);
+
   border-radius: 16px;
   padding: 2rem;
   width: 90%;
@@ -632,15 +692,16 @@ footer .footer a:hover {
 @media (max-width: 768px) {
   .viewCartBtn {
     width: 30px;
-    height: 35px;
+    height: 30px;
     border-radius: 50%;
     position: fixed;
-    bottom: 15px;
-    right: 3px;
+    bottom: auto;
+   right: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0;
+    position: absolute;
   }
 
   .viewCartBtn .cart-text {
@@ -649,7 +710,7 @@ footer .footer a:hover {
 
   .viewCartBtn .cart-icon {
     display: block;
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1;
   }
 
@@ -769,6 +830,7 @@ footer .footer a:hover {
     padding: 1px 5px;
     cursor: pointer;
     color: var(--color-text);
+    margin-right: 10px;
   }
   .Ensaymada-products h2,
   .hopia-products h2,
@@ -776,7 +838,7 @@ footer .footer a:hover {
   .spanish-products h2 {
     font-size: 1.2rem;
   }
-}
+
 
 /* --- Pienemmät laitteet, kuten puhelin vaakasuunnassa --- */
 @media (max-width: 450px) {
@@ -800,6 +862,7 @@ footer .footer a:hover {
   }
 
   .hero-image2 {
+    margin-top: 60px;
     width: 100%;
     height: auto;
     object-fit: contain;
@@ -810,7 +873,8 @@ footer .footer a:hover {
     background: none;
     color: black;
     margin: 0;
-    margin-top: 350px;
+    margin-top: 400px;
+    margin-bottom: 10px;
 
     text-align: center;
     width: 100%;
@@ -828,7 +892,7 @@ footer .footer a:hover {
 
   .hero-logo {
     width: 120px;
-    top: 10px;
+    top: 70px;
     left: 10px;
   }
   .parent {
@@ -883,12 +947,7 @@ footer .footer a:hover {
     font-size: 0.95rem;
   }
   /* Close-ikoni hieman pienemmäksi ja lähemmäs reunaa */
-  #cartPopup #closeCart {
-    top: 8px;
-    right: 10px;
-    font-size: 0.8rem;
-  }
-
+ 
   /* Lomakekentät isommilla kosketusalueilla */
   #orderForm input,
   #orderForm select {
@@ -908,5 +967,15 @@ footer .footer a:hover {
     padding: 0.8rem 1.5rem;
     font-size: 1.05rem;
     border-radius: 10px;
+  }
+  #topBtn {
+    position: fixed;
+    bottom: 0px;
+    right: 4px;
+    padding: 3px 7px;
+    font-size: 16px;
+    cursor: pointer;
+    display: none; /* piilossa aluksi */
+    z-index: 1000;
   }
 }

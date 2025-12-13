@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="style.css" />
     <script type="module" src="./js/firebase-config.js"></script>
     <script type="module" src="./js/orders.js"></script>
+    <script type="module" src="./js/topBtn.js"></script>
   </head>
   <body>
     <header>
@@ -32,8 +33,12 @@
           </div>
         </div>
         <a href="Tietoja.html">About Us</a>
-        <a href="kokki-login.html">Chef View</a>
       </nav>
+      <a href="#" id="viewCartBtn" class="viewCartBtn">
+        <span class="cart-text">Cart</span>
+        <span class="cart-icon">🛒</span>
+        <span id="cart-count" class="cart-count">0</span>
+      </a>
     </header>
     <main>
       <!-- Hero section -->
@@ -168,11 +173,7 @@
         </form>
       </div>
     </div>
-
-    <button id="viewCartBtn" class="viewCartBtn">
-      <span class="cart-text">Go to cart</span>
-      <span class="cart-icon">🛒</span>
-    </button>
+    <button id="topBtn">🔝</button>
 
     <div class="contact-container">
       <h5>Contact Us</h5>
@@ -226,7 +227,7 @@
           <a href="Tietosuojaseloste.html">Privacy Policy</a>
         </p>
         <p>&copy; 2025 By Matias Tolvanen</p>
-        <p></p>
+        <a href="kokki-login.html">Chef View</a>
       </div>
     </footer>
   </body>

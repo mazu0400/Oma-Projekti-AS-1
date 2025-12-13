@@ -3,6 +3,8 @@ import {
   collection,
   addDoc,
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+
+// ==================== NAV ====================
 const menuToggle = document.getElementById("menu-toggle");
 const navMenu = document.getElementById("nav-menu");
 const dropdown = document.querySelector(".dropdown");
@@ -21,23 +23,36 @@ dropdown.addEventListener("mouseleave", () => {
   if (window.innerWidth > 900) dropdown.classList.remove("open");
 });
 
-// Mobile dropdown toggle klikkauksella
+// Mobile dropdown toggle
 dropdownToggle.addEventListener("click", (e) => {
   if (window.innerWidth <= 900) {
-    e.preventDefault(); // estää scrollauksen # linkkiin
+    e.preventDefault();
     dropdown.classList.toggle("open");
   }
 });
 
-// Sulje dropdown jos resize > 900px
+// Sulje nav mobiilissa linkin klikkauksella (mutta ei dropdown-togglea)
+document.querySelectorAll("#nav-menu a").forEach((link) => {
+  link.addEventListener("click", () => {
+    if (
+      window.innerWidth <= 900 &&
+      !link.classList.contains("dropdown-toggle")
+    ) {
+      navMenu.classList.remove("active");
+      dropdown.classList.remove("open");
+    }
+  });
+});
+
+// Sulje nav ja dropdown jos resize > 900px
 window.addEventListener("resize", () => {
   if (window.innerWidth > 900) {
-    dropdown.classList.remove("open");
     navMenu.classList.remove("active");
+    dropdown.classList.remove("open");
   }
 });
 
-// OSTOSKORI
+// ==================== OSTOSKORI ====================
 let cart = [];
 
 // DOM-elementit
@@ -52,6 +67,11 @@ const totalPriceSpan = document.getElementById("totalPrice");
 const closeCart = document.getElementById("closeCart");
 const viewCartBtn = document.getElementById("viewCartBtn");
 const orderForm = document.getElementById("orderForm");
+const cartCountEl = document.getElementById("cart-count");
+const deliveryTimeInput = document.getElementById("deliveryTime");
+const clearCartBtn = document.getElementById("clearCartBtn");
+
+// ==================== TUOTTEET ====================
 //tuotteet
 const PRODUCTS = [
   // ENSAYMADA
@@ -315,7 +335,7 @@ const PRODUCTS = [
   },
 ];
 
-// Luo tuotekortit (vain yksi looppi)
+// Luo tuotekortit
 PRODUCTS.forEach((p) => {
   const div = document.createElement("div");
   div.className = "product-card";
@@ -331,7 +351,6 @@ PRODUCTS.forEach((p) => {
     <button class="add-to-cart">Add to Cart</button>
   `;
 
-  // ✨ TÄSTÄ jako oikeaan osioon ✨
   if (p.category === "ensaymada") ensaymadaSection.appendChild(div);
   else if (p.category === "hopia") hopiaSection.appendChild(div);
   else if (p.category === "spanish") spanishSection.appendChild(div);
@@ -356,11 +375,23 @@ PRODUCTS.forEach((p) => {
     const existing = cart.find((item) => item.id === p.id);
     if (existing) existing.qty += quantity;
     else cart.push({ ...p, qty: quantity });
+
     qtySpan.textContent = "1";
+    updateCartBadge();
   });
 });
 
-// Näytä ja päivitä ostoskori
+// ==================== FUNKTIOT ====================
+function updateCartBadge() {
+  const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+  if (totalQty > 0) {
+    cartCountEl.style.display = "flex";
+    cartCountEl.textContent = totalQty;
+  } else {
+    cartCountEl.style.display = "none";
+  }
+}
+
 function updateCartPopup() {
   cartItemsDiv.innerHTML = "";
   let total = 0;
@@ -373,38 +404,57 @@ function updateCartPopup() {
   totalPriceSpan.textContent = total;
 }
 
+function setMinDeliveryDate() {
+  const now = new Date();
+  now.setDate(now.getDate() + 1); // seuraava päivä
+  now.setHours(0, 0, 0, 0);
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+  const hours = String(now.getHours()).padStart(2, "0");
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+
+  deliveryTimeInput.min = `${year}-${month}-${day}T${hours}:${minutes}`;
+}
+
+// ==================== EVENT LISTENERIT ====================
+setMinDeliveryDate();
+
 viewCartBtn.addEventListener("click", () => {
   updateCartPopup();
-
   cartPopup.classList.remove("hidden");
-  cartPopup.style.width = "";
-  cartPopup.style.height = "";
-  cartPopup.style.padding = "";
+  cartPopup.style.display = "flex";
+  cartPopup.style.alignItems = "center";
+  cartPopup.style.justifyContent = "center";
+  cartPopup.style.background = "rgba(0,0,0,0.5)";
   cartPopup.style.position = "fixed";
   cartPopup.style.top = "0";
   cartPopup.style.left = "0";
   cartPopup.style.right = "0";
   cartPopup.style.bottom = "0";
-
-  cartPopup.style.display = "flex";
-  cartPopup.style.alignItems = "center";
-  cartPopup.style.justifyContent = "center";
-  cartPopup.style.background = "rgba(0,0,0,0.5)";
   cartPopup.style.zIndex = "9999";
 });
+
 closeCart.addEventListener("click", () => {
   cartPopup.classList.add("hidden");
   cartPopup.style.display = "none";
 });
 
-// Lähetä tilaus Firebaseen
+clearCartBtn.addEventListener("click", () => {
+  cart = [];
+  updateCartPopup();
+  updateCartBadge();
+  cartPopup.style.display = "none";
+  document
+    .querySelectorAll(".product-card .qty")
+    .forEach((span) => (span.textContent = "1"));
+  orderForm.reset();
+  alert("Cart cleared!");
+});
+
 orderForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-
-  if (cart.length === 0) {
-    alert("Your cart is empty.");
-    return;
-  }
+  if (cart.length === 0) return alert("Your cart is empty.");
 
   const name = document.getElementById("customerName").value.trim();
   const email = document.getElementById("customerEmail").value.trim();
@@ -412,7 +462,7 @@ orderForm.addEventListener("submit", async (e) => {
   const address = document.getElementById("customerAddress").value.trim();
   const city = document.getElementById("customerCity").value.trim();
   const deliveryMethod = document.getElementById("deliveryMethod").value;
-  const deliveryTime = document.getElementById("deliveryTime").value;
+  const deliveryTime = deliveryTimeInput.value;
 
   if (
     !name ||
@@ -422,10 +472,13 @@ orderForm.addEventListener("submit", async (e) => {
     !city ||
     !deliveryMethod ||
     !deliveryTime
-  ) {
-    alert("Please fill in all fields.");
-    return;
-  }
+  )
+    return alert("Please fill in all fields.");
+
+  if (!document.getElementById("consent").checked)
+    return alert(
+      "Please accept the processing of your data before submitting the order."
+    );
 
   const order = {
     created: new Date().toISOString(),
@@ -434,46 +487,20 @@ orderForm.addEventListener("submit", async (e) => {
     items: cart.map((c) => ({ product: c.name, qty: c.qty, unit: c.price })),
     total: cart.reduce((sum, c) => sum + c.price * c.qty, 0),
   };
-  const consent = document.getElementById("consent").checked;
-  if (!consent) {
-    alert(
-      "Please accept the processing of your data before submitting the order."
-    );
-    return;
-  }
 
   try {
     await addDoc(collection(db, "orders"), order);
     alert("Order submitted!");
     cart = [];
     updateCartPopup();
+    updateCartBadge();
     cartPopup.style.display = "none";
     orderForm.reset();
+    setMinDeliveryDate(); // resetoi min date
   } catch (err) {
     console.error(err);
     alert("Order failed.");
   }
 });
-// Hae nappi DOM:sta
-const clearCartBtn = document.getElementById("clearCartBtn");
 
-clearCartBtn.addEventListener("click", () => {
-  // Tyhjennä ostoskori
-  cart = [];
-
-  // Päivitä ostoskorin popup
-  updateCartPopup();
-
-  // Piilota popup
-  cartPopup.style.display = "none";
-
-  // Palauta kaikki määrät takaisin 1:ksi
-  document.querySelectorAll(".product-card .qty").forEach((span) => {
-    span.textContent = "1";
-  });
-
-  // Tyhjennä lomakkeen kentät
-  orderForm.reset();
-
-  alert("Cart cleared!");
-});
+updateCartBadge();
