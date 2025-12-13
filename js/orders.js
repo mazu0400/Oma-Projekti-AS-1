@@ -456,12 +456,17 @@ orderForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const selectedDate = new Date(deliveryTimeInput.value);
 
+  if (isNaN(selectedDate)) {
+    alert("Please select a delivery date.");
+    return;
+  }
+
   const minDate = new Date();
   minDate.setDate(minDate.getDate() + 1);
   minDate.setHours(0, 0, 0, 0);
 
   if (selectedDate < minDate) {
-    alert("Please select a delivery date from tomorrow onwards.");
+    alert("Delivery date must be from tomorrow onwards.");
     return;
   }
 
