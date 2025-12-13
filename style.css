@@ -765,6 +765,10 @@ footer .footer a:hover {
     gap: 0.5rem;
     margin-top: 0.1rem;
   }
+  .Products{
+    margin:auto;
+
+  }
 
   /* Lisää ostoskoriin -nappi */
 
@@ -852,7 +856,7 @@ footer .footer a:hover {
     font-size: 0.7rem;
   }
   #hero {
-    height: 450px;
+    height: auto;
   }
   .hero-content {
     display: flex;
@@ -869,15 +873,17 @@ footer .footer a:hover {
   }
 
   .hero-text {
+    
     position: static !important;
     background: none;
     color: black;
-    margin: 0;
-    margin-top: 400px;
-    margin-bottom: 10px;
+   margin: 0;
+   margin-top: 320px;
+   
 
     text-align: center;
     width: 100%;
+   
   }
 
   .hero-text h1 {
@@ -896,7 +902,7 @@ footer .footer a:hover {
     left: 10px;
   }
   .parent {
-    margin-top: 30px;
+    margin-top: 0px;
   }
   .parent h3 {
     font-size: 1.5rem;
