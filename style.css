@@ -306,8 +306,7 @@ header nav a:hover {
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 15px;
+  gap: 5px;
 }
 
 .contact-icon {
@@ -690,6 +689,47 @@ footer .footer a:hover {
   color: #fff;
 }
 
+/* wrapper */
+.nav-lang {
+  position: relative; /* pysyy rivillä muiden linkkien kanssa */
+  z-index: 2000;
+}
+
+/* nappi */
+.nav-lang-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  padding: 3px 6px;
+}
+
+/* dropdown lista – leijuu navin päällä */
+.nav-lang-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%; /* suoraan napin alapuolelle */
+  left: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 80px;
+  z-index: 2000;
+}
+
+/* yksittäiset vaihtoehdot */
+.nav-lang-dropdown li {
+  padding: 4px 6px;
+  cursor: pointer;
+}
+
+/* hover-efekti */
+.nav-lang-dropdown li:hover {
+  background: #f3f3f3;
+}
+
 /* Liquid glass nappien ja popupin taustalle */
 .liquid-glass {
   background: var(--color-liquid-bg);
@@ -727,6 +767,18 @@ footer .footer a:hover {
     display: none;
   }
 
+  .nav-lang-btn {
+    padding: 3px;
+    margin-right: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+  }
+  .nav-lang-dropdown {
+    font-size: 0.8rem;
+    max-width: 10px;
+  }
   .viewCartBtn .cart-icon {
     display: block;
     font-size: 0.9rem;
@@ -836,6 +888,10 @@ footer .footer a:hover {
   }
   #nav-menu.active {
     display: flex;
+  }
+  .nav-lang {
+    position: relative; /* pysyy rivillä muiden linkkien kanssa */
+    z-index: 2000;
   }
 
   /* Dropdown pystysuoraan */

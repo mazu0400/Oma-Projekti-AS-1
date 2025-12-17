@@ -348,7 +348,7 @@ PRODUCTS.forEach((p) => {
       <span class="qty">1</span>
       <button class="plus">+</button>
     </div>
-    <button class="add-to-cart">Add to Cart</button>
+    <button class="add-to-cart" data-key="addcard">Add to Cart</button>
   `;
 
   if (p.category === "ensaymada") ensaymadaSection.appendChild(div);

@@ -5,16 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="About.css" />
+    <script type="module" src="js/lang.js"></script>
   </head>
   <body>
     <div class="hero-abaut">
       <img src="Image/header.logo.jpg" id="hero-abaut-logo" />
-      <h1>Authentic Filipino delicacies now available in Finland</h1>
+      <h1 data-key="otsikko">
+        Authentic Filipino delicacies now available in Finland
+      </h1>
     </div>
     <div class="Abaut-Products">
-      <h2>All products are made according to original recipes</h2>
-      <h2>Allergen Information</h2>
-      <h3>
+      <h2 data-key="aliotsikko">
+        All products are made according to original recipes
+      </h2>
+      <h2 data-key="allergenit">Allergen Information</h2>
+      <h3 data-key="tiedotallergeneista">
         Products may contain or may contain traces of the following allergens:
         <br />🌾 Cereals containing gluten (wheat) <br />
         🥛 Milk and dairy products <br />
@@ -27,13 +32,13 @@
         possible.
       </h3>
 
-      <h3>
+      <h3 data-key="toimitustietoja">
         Products are made to order in Espoo. Please contact us by phone if you
         wish to place a special order.
       </h3>
     </div>
     <div class="about-deliveries">
-      <h4>
+      <h4 data-key="toimituksesta">
         Deliveries in the Espoo area are free of charge.<br />
         Deliveries to the Helsinki metropolitan area are available for a small
         fee.<br />
@@ -42,11 +47,15 @@
       </h4>
     </div>
 
-    <a href="index.html" class="back-home">Back to home</a>
+    <a href="index.html" class="back-home" data-key="etusivulle"
+      >Back to home</a
+    >
     <footer>
       <div class="footer">
         <p>
-          <a href="Tietosuojaseloste.html">Privacy Policy</a>
+          <a data-key="Tietosuojaseloste" href="Tietosuojaseloste.html"
+            >Privacy Policy</a
+          >
         </p>
         <p>
           &copy; 2025 By Matias Tolvanen <br />
