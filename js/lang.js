@@ -52,6 +52,53 @@ For deliveries to the rest of Finland via Matkahuolto, please place your order a
     etusivulle: "Back to home",
     Tietosuojaseloste: "Privacy Policy",
     addcard: "Add to Cart",
+    LoginKokki: "Log in",
+    loginkokkibtn: "Chef Login",
+    errorMsg: "Wrong email or password",
+    backhome: "Back to Home",
+    headertxt1: "Privacy Policy",
+    mainp1:
+      "This online store uses customer data and login information as follows:",
+    mainh21: "Data Controller",
+    mainp2: "Online Store: Matias Tolvanen",
+    mainp3: "Contact:",
+
+    mainh22: "Data Collected",
+    mainp4: "Customer data is collected during the order process:",
+    mainli1: "Name",
+    mainli2: "Email",
+    mainli3: "Address",
+    mainli4: "City",
+    mainli5: "Phone number",
+    mainli6: "Delivery method",
+    mainli7: "Preferred delivery time",
+    mainp5:
+      "Chef login is done via email and password using Firebase Authentication.",
+    mainh23: "Purpose of Data Processing",
+    mainli8: "Customer data is used only for processing and delivering orders.",
+    mainli9: "Chef login is used only for securely managing orders.",
+    mainh24: "Data Storage",
+    mainli10: "Customer data is stored in Firebase Firestore.",
+    mainli11:
+      "Login credentials are stored securely in Firebase Authentication.",
+    mainli12:
+      "Data is retained only as long as necessary to process the order.",
+    mainh25: "Data Protection",
+    mainli13: "Data is protected by Firebase security rules.",
+    mainli14: "Data transmission occurs over secure HTTPS connections.",
+    mainli15: "Access to data is limited to authorized personnel (chef).",
+    mainh26: "Rights of the Data Subject",
+    mainp6: "Customers have the right to:",
+    mainli16: "Access their personal data",
+    mainli17: "Request correction of their data",
+    mainli18: "Request deletion of their data",
+    mainp7: "These rights can be exercised by contacting via email:",
+
+    mainh27: "Consent",
+    mainp8:
+      "The customer gives consent for data processing by accepting the collection of data during the order process.",
+    btn1a: "Back to Homepage",
+    footer1: "© 2025 Matias Tolvanen",
   },
   fi: {
     siteTitle: "Pinoy-herkut",
@@ -107,6 +154,55 @@ Muualle Suomeen Matkahuollon kautta, ota yhteyttä puhelimitse tilauksen yhteyde
     etusivulle: "Takaisin etusivulle",
     Tietosuojaseloste: "Tietosuojaseloste",
     addcard: "Lisää ostoskoriin",
+    LoginKokki: "Kirjaudu sisään",
+    loginkokkibtn: "Kokki Kirjaudu",
+    errorMsg: "Väärä sähköposti tai salasana",
+    backhome: "Takaisin Etusivulle",
+    headertxt1: "Tietosuojakäytäntö",
+    mainp1:
+      "Tämä verkkokauppa käyttää asiakastietoja ja kirjautumistietoja seuraavasti:",
+    mainh21: "Tietojen käsittelijä",
+    mainp2: "Verkkokauppa: Matias Tolvanen",
+    mainp3: "Yhteystiedot:",
+
+    mainh22: "Kerättävät tiedot",
+    mainp4: "Asiakastiedot kerätään tilausprosessin aikana:",
+    mainli1: "Nimi",
+    mainli2: "Sähköposti",
+    mainli3: "Osoite",
+    mainli4: "Kaupunki",
+    mainli5: "Puhelinnumero",
+    mainli6: "Toimitustapa",
+    mainli7: "Toivottu toimitusaika",
+    mainp5:
+      "Kokin kirjautuminen tapahtuu sähköpostilla ja salasanalla Firebase Authenticationin kautta.",
+    mainh23: "Tietojen käsittelyn tarkoitus",
+    mainli8:
+      "Asiakastietoja käytetään vain tilausten käsittelyyn ja toimitukseen.",
+    mainli9:
+      "Kokin kirjautumista käytetään vain tilausten turvalliseen hallintaan.",
+    mainh24: "Tietojen säilytys",
+    mainli10: "Asiakastiedot säilytetään Firebase Firestoressa.",
+    mainli11:
+      "Kirjautumistiedot säilytetään turvallisesti Firebase Authenticationissa.",
+    mainli12:
+      "Tietoja säilytetään vain niin kauan kuin on tarpeen tilauksen käsittelyyn.",
+    mainh25: "Tietosuoja",
+    mainli13: "Tietoja suojaa Firebase-suojakäytännöt.",
+    mainli14: "Tietojen siirto tapahtuu turvallisen HTTPS-yhteyden kautta.",
+    mainli15: "Tietojen käyttö on rajattu valtuutetuille henkilöille (kokki).",
+    mainh26: "Rekisteröidyn oikeudet",
+    mainp6: "Asiakkaalla on oikeus:",
+    mainli16: "Saada tietoonsa omat henkilötietonsa",
+    mainli17: "Pyytää tietojen oikaisua",
+    mainli18: "Pyytää tietojensa poistamista",
+    mainp7: "Näitä oikeuksia voi käyttää ottamalla yhteyttä sähköpostitse:",
+
+    mainh27: "Suostumus",
+    mainp8:
+      "Asiakas antaa suostumuksensa tietojen käsittelyyn hyväksymällä tietojen keräämisen tilausprosessin aikana.",
+    btn1a: "Takaisin etusivulle",
+    footer1: "© 2025 Matias Tolvanen",
   },
   tl: {
     // Filipino / Tagalog
@@ -164,6 +260,58 @@ Muualle Suomeen Matkahuollon kautta, ota yhteyttä puhelimitse tilauksen yhteyde
     etusivulle: "Bumalik sa bahay",
     Tietosuojaseloste: "Patakaran sa Privacy",
     addcard: "Idagdag sa Cart",
+    LoginKokki: "Pag-login ng Chef",
+    loginkokkibtn: "Mag-log in",
+    errorMsg: "Mali ang email o password",
+    backhome: "Bumalik sa Home",
+    headertxt1: "Patakaran sa Privacy",
+    mainp1:
+      "Ginagamit ng online store na ito ang datos ng customer at impormasyon sa pag-login sa mga sumusunod:",
+    mainh21: "Tagapamahala ng Datos",
+    mainp2: "Online Store: Matias Tolvanen",
+    mainp3: "Kontak:",
+    mainh22: "Mga Datos na Kinokolekta",
+    mainp4: "Kinokolekta ang datos ng customer sa proseso ng pag-order:",
+    mainli1: "Pangalan",
+    mainli2: "Email",
+    mainli3: "Address",
+    mainli4: "Lungsod",
+    mainli5: "Numero ng Telepono",
+    mainli6: "Paraan ng Paghahatid",
+    mainli7: "Nais na oras ng paghahatid",
+    mainp5:
+      "Ang pag-login ng Chef ay sa pamamagitan ng email at password gamit ang Firebase Authentication.",
+    mainh23: "Layunin ng Pagproseso ng Datos",
+    mainli8:
+      "Ang datos ng customer ay ginagamit lamang para sa pagproseso at paghahatid ng mga order.",
+    mainli9:
+      "Ang pag-login ng Chef ay ginagamit lamang para sa ligtas na pamamahala ng mga order.",
+    mainh24: "Pag-iimbak ng Datos",
+    mainli10: "Ang datos ng customer ay iniimbak sa Firebase Firestore.",
+    mainli11:
+      "Ang login credentials ay ligtas na iniimbak sa Firebase Authentication.",
+    mainli12:
+      "Ang datos ay iniimbak lamang hangga’t kinakailangan para sa pagproseso ng order.",
+    mainh25: "Proteksyon ng Datos",
+    mainli13:
+      "Ang datos ay protektado ng mga patakaran sa seguridad ng Firebase.",
+    mainli14:
+      "Ang pagpapadala ng datos ay ginagawa sa secure na HTTPS na koneksyon.",
+    mainli15:
+      "Ang access sa datos ay limitado lamang sa awtorisadong tao (chef).",
+    mainh26: "Mga Karapatan ng Data Subject",
+    mainp6: "Ang customer ay may karapatang:",
+    mainli16: "Makita ang kanilang personal na datos",
+    mainli17: "Humiling ng pagwawasto ng kanilang datos",
+    mainli18: "Humiling na tanggalin ang kanilang datos",
+    mainp7:
+      "Maaaring gamitin ang mga karapatang ito sa pamamagitan ng pag-contact sa email:",
+
+    mainh27: "Pahintulot",
+    mainp8:
+      "Ang customer ay nagbibigay ng pahintulot para sa pagproseso ng datos sa pamamagitan ng pagtanggap ng pagkolekta ng datos sa proseso ng pag-order.",
+    btn1a: "Bumalik sa bahay",
+    footer1: "© 2025 Matias Tolvanen",
   },
 };
 function setLanguage(lang) {

@@ -8,15 +8,18 @@
   </head>
   <body>
     <div class="login-container">
-      <h1>Kokki Kirjaudu</h1>
-      <input type="email" id="emailInput" placeholder="Sähköposti" />
-      <input type="password" id="passwordInput" placeholder="Salasana" />
-      <button id="loginBtn">Kirjaudu sisään</button>
-      <p id="errorMsg" style="color: red; display: none">
+      <h1 data-key="LoginKokki">Kokki Kirjaudu</h1>
+      <input type="email" id="emailInput" placeholder="Email" />
+      <input type="password" id="passwordInput" placeholder="Password" />
+      <button id="loginBtn" data-key="loginkokkibtn">Kirjaudu sisään</button>
+      <p id="errorMsg" style="color: red; display: none" data-key="errorMsg">
         Väärä sähköposti tai salasana
       </p>
     </div>
-    <a href="index.html" class="back-home">Takaisin Etusivulle</a>
+    <a href="index.html" class="back-home" data-key="backhome"
+      >Takaisin Etusivulle</a
+    >
+    <script type="module" src="./js/lang.js"></script>
 
     <script type="module" src="./js/kokki-login.js"></script>
   </body>
