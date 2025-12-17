@@ -76,7 +76,7 @@
     rgba(191, 148, 92, 1) 50%,
     rgba(156, 127, 95, 1) 100%
   );
---color-cart-bg:white;
+  --color-cart-bg: white;
 
   /* Footer */
   --color-footer-bg: linear-gradient(
@@ -127,7 +127,6 @@ header {
   width: 100%;
   z-index: 100; /* Varmistaa, että header näkyy muiden elementtien päällä */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  
 }
 
 header h1 {
@@ -419,6 +418,18 @@ header nav a:hover {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   max-width: 1300px;
 }
+.products-may-contain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background: var(--color-add-btn-bg);
+  color: var(--color-add-btn-text);
+  max-width: 200px;
+  border-radius: 20px;
+  text-decoration: none;
+}
 
 .product-card h3,
 .product-card p {
@@ -520,7 +531,7 @@ button:hover,
   padding: 0 14px 0 10px;
   font-weight: bold;
   cursor: pointer;
-text-decoration: none;
+  text-decoration: none;
   transition: all 0.25s ease;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
@@ -548,13 +559,21 @@ text-decoration: none;
 .viewCartBtn .cart-icon {
   display: inline;
 }
-.popup-content{
+.popup-content {
   width: 70%;
   height: 100%;
   max-height: 80vh; /* korkeus rajattu, scrollataan jos sisältö ylittää */
   overflow-y: auto;
   -webkit-overflow-scrolling: touch; /* smooth scroll iOS:ssä */
-
+}
+.special-order h6 {
+  font-weight: bold;
+  margin-top: 0;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: rgb(233, 233, 233);
+  color: black;
 }
 /* Ostoskori pop-up */
 #cartPopup {
@@ -696,7 +715,7 @@ footer .footer a:hover {
     border-radius: 50%;
     position: fixed;
     bottom: auto;
-   right: 30px;
+    right: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -713,7 +732,13 @@ footer .footer a:hover {
     font-size: 0.9rem;
     line-height: 1;
   }
+  .products-may-contain {
+    margin-bottom: 20px;
 
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    max-width: 150px;
+  }
   .contact-container {
     width: 80%;
     padding: 20px;
@@ -765,9 +790,8 @@ footer .footer a:hover {
     gap: 0.5rem;
     margin-top: 0.1rem;
   }
-  .Products{
-    margin:auto;
-
+  .Products {
+    margin: auto;
   }
 
   /* Lisää ostoskoriin -nappi */
@@ -843,145 +867,153 @@ footer .footer a:hover {
     font-size: 1.2rem;
   }
 
+  /* --- Pienemmät laitteet, kuten puhelin vaakasuunnassa --- */
+  @media (max-width: 450px) {
+    header h1 {
+      font-size: 1.1rem;
+    }
+    .product-card h3 {
+      font-size: 0.7rem;
+    }
+    .product-card p {
+      font-size: 0.7rem;
+    }
+    #hero {
+      height: auto;
+    }
+    .hero-content {
+      display: flex;
 
-/* --- Pienemmät laitteet, kuten puhelin vaakasuunnassa --- */
-@media (max-width: 450px) {
-  header h1 {
-    font-size: 1.1rem;
-  }
-  .product-card h3 {
-    font-size: 0.7rem;
-  }
-  .product-card p {
-    font-size: 0.7rem;
-  }
-  #hero {
-    height: auto;
-  }
-  .hero-content {
-    display: flex;
+      align-items: center;
+      margin-bottom: 0;
+    }
+    .special-order h6 {
+      font-weight: bold;
+      margin-top: 0;
+      font-size: 0.75rem;
+    }
+    .hero-image2 {
+      margin-top: 60px;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
 
-    align-items: center;
-    margin-bottom: 0;
-  }
+    .hero-text {
+      position: static !important;
+      background: none;
+      color: black;
+      margin: 0;
+      margin-top: 320px;
 
-  .hero-image2 {
-    margin-top: 60px;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-  }
+      text-align: center;
+      width: 100%;
+    }
 
-  .hero-text {
-    
-    position: static !important;
-    background: none;
-    color: black;
-   margin: 0;
-   margin-top: 320px;
-   
+    .hero-text h1 {
+      font-size: 1.6rem;
+    }
+    .hero-text h2 {
+      font-size: 1rem;
+    }
+    .hero-text p {
+      font-size: 0.9rem;
+    }
 
-    text-align: center;
-    width: 100%;
-   
-  }
-
-  .hero-text h1 {
-    font-size: 1.6rem;
-  }
-  .hero-text h2 {
-    font-size: 1rem;
-  }
-  .hero-text p {
-    font-size: 0.9rem;
-  }
-
-  .hero-logo {
-    width: 120px;
-    top: 70px;
-    left: 10px;
-  }
-  .parent {
-    margin-top: 0px;
-  }
-  .parent h3 {
-    font-size: 1.5rem;
-    margin-top: 0;
-  }
-}
-@media (max-width: 768px) {
-  footer .footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.5rem;
-    padding: 1rem;
-  }
-
-  footer .footer a {
-    padding: 0.25rem 0.5rem;
-    font-size: 0.8rem;
-  }
-  footer .footer p {
-    font-size: 0.7rem;
-  }
-}
-/* RESPONSIVE: Puhelimet ja pienet näytöt */
-@media (max-width: 480px) {
-  /* Popup keskitys ja skaalaus */
-  #cartPopup .popup-content {
-    height: 90%;
-    width: 80%;
-    max-width: 360px;
-    padding: 1rem;
-    border-radius: 14px;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  #orderForm p {
-    font-size: 0.75rem;
-  }
-  #orderForm input {
-    font-size: 16px;
-  }
-  @supports (-webkit-touch-callout: none) {
-    #cartPopup * {
-      transform: none !important;
+    .hero-logo {
+      width: 120px;
+      top: 70px;
+      left: 10px;
+    }
+    .parent {
+      margin-top: 0px;
+    }
+    .parent h3 {
+      font-size: 1.5rem;
+      margin-top: 0;
     }
   }
+  @media (max-width: 768px) {
+    footer .footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding: 1rem;
+    }
 
-  #orderForm label {
-    font-size: 0.95rem;
+    footer .footer a {
+      padding: 0.25rem 0.5rem;
+      font-size: 0.8rem;
+    }
+    footer .footer p {
+      font-size: 0.7rem;
+    }
   }
-  /* Close-ikoni hieman pienemmäksi ja lähemmäs reunaa */
- 
-  /* Lomakekentät isommilla kosketusalueilla */
-  #orderForm input,
-  #orderForm select {
-    padding: 0.3rem;
-    font-size: 0.8rem;
-  }
+  /* RESPONSIVE: Puhelimet ja pienet näytöt */
+  @media (max-width: 480px) {
+    /* Popup keskitys ja skaalaus */
+    #cartPopup .popup-content {
+      height: 90%;
+      width: 80%;
+      max-width: 360px;
+      padding: 1rem;
+      border-radius: 14px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    #orderForm p {
+      font-size: 0.75rem;
+    }
+    #orderForm input {
+      font-size: 16px;
+    }
+    @supports (-webkit-touch-callout: none) {
+      #cartPopup * {
+        transform: none !important;
+      }
+    }
 
-  /* Painike isommaksi ja helpommaksi klikata */
-  #orderForm button {
-    padding: 0.8rem;
-    font-size: 0.7rem;
-    border-radius: 10px;
-  }
+    #orderForm label {
+      font-size: 0.95rem;
+    }
+    /* Close-ikoni hieman pienemmäksi ja lähemmäs reunaa */
 
-  /* BackButton keskitettynä ja isommalla painikkeella */
-  .BackButton button {
-    padding: 0.8rem 1.5rem;
-    font-size: 1.05rem;
-    border-radius: 10px;
-  }
-  #topBtn {
-    position: fixed;
-    bottom: 0px;
-    right: 4px;
-    padding: 3px 7px;
-    font-size: 16px;
-    cursor: pointer;
-    display: none; /* piilossa aluksi */
-    z-index: 1000;
+    /* Lomakekentät isommilla kosketusalueilla */
+    #orderForm input,
+    #orderForm select {
+      padding: 0.3rem;
+      font-size: 0.8rem;
+    }
+
+    /* Painike isommaksi ja helpommaksi klikata */
+    #orderForm button {
+      padding: 0.8rem;
+      font-size: 0.7rem;
+      border-radius: 10px;
+    }
+
+    /* BackButton keskitettynä ja isommalla painikkeella */
+    .BackButton button {
+      padding: 0.8rem 1.5rem;
+      font-size: 1.05rem;
+      border-radius: 10px;
+    }
+    #topBtn {
+      position: fixed;
+      bottom: 0px;
+      right: 4px;
+      padding: 3px 7px;
+      font-size: 16px;
+      cursor: pointer;
+      display: none; /* piilossa aluksi */
+      z-index: 1000;
+    }
+    .products-may-contain {
+      margin-bottom: 20px;
+
+      padding: 5px 10px;
+      font-size: 0.8rem;
+      max-width: 150px;
+    }
   }
 }
