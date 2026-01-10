@@ -678,10 +678,8 @@ footer .footer a {
   color: var(--color-footer-text);
   text-decoration: none;
   font-weight: 300;
-  padding: 0.3rem 0.6rem;
-
-  border-radius: 6px;
-  transition: background 0.3s, color 0.3s;
+  border-radius: 10px;
+  padding: 0.1rem 0.2rem;
 }
 
 footer .footer a:hover {
@@ -692,7 +690,6 @@ footer .footer a:hover {
 /* wrapper */
 .nav-lang {
   position: relative; /* pysyy rivillä muiden linkkien kanssa */
-  z-index: 2000;
 }
 
 /* nappi */
@@ -768,11 +765,9 @@ footer .footer a:hover {
   }
 
   .nav-lang-btn {
-    padding: 3px;
-    margin-right: 45px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
+    right: 50px;
+
     font-size: 0.8rem;
   }
   .nav-lang-dropdown {
@@ -885,13 +880,13 @@ footer .footer a:hover {
     background: white;
     padding: 1rem 2rem;
     z-index: 99;
+    margin: 0;
   }
   #nav-menu.active {
     display: flex;
   }
   .nav-lang {
     position: relative; /* pysyy rivillä muiden linkkien kanssa */
-    z-index: 2000;
   }
 
   /* Dropdown pystysuoraan */
