@@ -114,7 +114,7 @@ async function loadOrders() {
         <td>${data.delivery?.method || ""}</td>
         <td>${data.delivery?.time || ""}</td>
         <td>${productsText}</td>
-        <td>${data.total || 0} €</td>
+        <td>${data.total || 0} </td>
         <td><button class="deleteBtn">Poista</button></td>
       `;
       const deleteBtn = row.querySelector(".deleteBtn");
