@@ -1,25 +1,19 @@
 :root {
-  /* Perusvärit */
   --color-background: linear-gradient(
     0deg,
     rgba(219, 189, 130, 0.369) 0%,
     rgba(219, 189, 130, 0.436) 100%
   );
   --color-text: #1f1f23;
-
-  /* Kontti */
   --color-container-bg: linear-gradient(
     54deg,
     rgba(219, 189, 130, 0.3) 0%,
     rgba(214, 181, 104, 0.4) 66%,
     rgba(161, 103, 53, 0.3) 91%
   );
-
-  /* Input kentät */
   --color-input-bg: #fff1e8;
   --color-input-border: #dbbd82;
 
-  /* Nappulat */
   --color-btn-bg: linear-gradient(
     0deg,
     rgba(255, 221, 140, 1) 0%,
@@ -34,8 +28,6 @@
     rgba(156, 127, 95, 1) 100%
   );
   --color-btn-text: #1f1f23;
-
-  /* Takaisin linkki */
   --color-backhome-bg: linear-gradient(
     0deg,
     rgba(255, 221, 140, 1) 0%,
@@ -50,10 +42,6 @@
     rgba(156, 127, 95, 1) 100%
   );
 }
-
-/* ============================
-       Body
-=========================== */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: var(--color-background);
@@ -66,10 +54,6 @@ body {
   height: 100vh;
   position: relative;
 }
-
-/* ============================
-       Kirjautumiskontti
-=========================== */
 .login-container {
   background: var(--color-container-bg);
   padding: 2.5rem 3rem;
@@ -91,10 +75,6 @@ body {
   color: var(--color-text);
   font-size: 2rem;
 }
-
-/* ============================
-       Input kentät
-=========================== */
 #emailInput,
 #passwordInput {
   width: 90%;
@@ -112,10 +92,6 @@ body {
   border-color: #ffd166;
   box-shadow: 0 0 8px rgba(255, 209, 102, 0.4);
 }
-
-/* ============================
-       Kirjaudu-nappi
-=========================== */
 .login-container button {
   width: 100%;
   padding: 0.75rem 1rem;
@@ -135,19 +111,11 @@ body {
   background: var(--color-btn-hover-bg);
   color: #fff;
 }
-
-/* ============================
-       Virheilmoitus
-=========================== */
 #errorMsg {
   margin-top: 0.5rem;
   font-weight: bold;
   color: red;
 }
-
-/* ============================
-       Takaisin Etusivulle linkki
-=========================== */
 .back-home {
   position: fixed;
   left: 20px;
@@ -169,10 +137,6 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
-
-/* ============================
-       Responsiivisuus
-=========================== */
 @media (max-width: 480px) {
   .login-container {
     padding: 2rem 1.5rem;

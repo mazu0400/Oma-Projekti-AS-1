@@ -1,13 +1,10 @@
 :root {
-  /* Perusvärit */
   --color-background: linear-gradient(
     0deg,
     rgba(219, 189, 130, 0.369) 0%,
     rgba(219, 189, 130, 0.436) 100%
   );
   --color-text: #1f1f23;
-
-  /* Header */
   --color-header-bg: linear-gradient(
     0deg,
     rgba(214, 181, 104, 1) 0%,
@@ -22,17 +19,10 @@
     rgba(156, 127, 95, 1) 100%
   );
 
-  /* Dropdown */
   --color-dropdown-bg: #fbfbfb;
-
-  /* Hero */
   --color-hero-text-bg: rgba(0, 0, 0, 0.4);
   --color-hero-text: #ffffff;
-
-  /* Contact */
   --color-contact-bg: #fafafa;
-
-  /* Product cards */
   --color-card-bg: #fff1e8;
   --color-card-text: #1f1f23;
   --color-add-btn-bg: linear-gradient(
@@ -41,11 +31,10 @@
     rgba(255, 237, 196, 1) 0%,
     rgba(255, 237, 196, 1) 96%,
     rgba(255, 221, 140, 1) 100%
-  ); /* lämmin keltainen */
+  );
   --color-add-btn-text: #1f1f23;
   --color-add-btn-cd: #dbbd8288;
 
-  /* Buttons */
   --color-btn-bg: linear-gradient(
     0deg,
     rgba(255, 221, 140, 1) 0%,
@@ -61,7 +50,6 @@
     rgba(156, 127, 95, 1) 100%
   );
 
-  /* Cart popup */
   --color-cart-bg: #ffffff;
   --color-cart-overlay: rgba(0, 0, 0, 0.35);
   --color-cart-close: linear-gradient(
@@ -77,8 +65,6 @@
     rgba(156, 127, 95, 1) 100%
   );
   --color-cart-bg: white;
-
-  /* Footer */
   --color-footer-bg: linear-gradient(
     0deg,
     rgba(214, 181, 104, 1) 0%,
@@ -86,8 +72,6 @@
     rgba(214, 181, 104, 1) 100%
   );
   --color-footer-text: #1f1f23;
-
-  /* Liquid glass */
   --color-liquid-bg: rgba(255, 255, 255, 0.15);
   --color-liquid-hover-bg: rgba(255, 255, 255, 0.25);
   --color-liquid-border: rgba(255, 255, 255, 0.3);
@@ -105,7 +89,6 @@ h6 {
   font-family: "Montserrat", sans-serif;
 }
 
-/* Perusasetukset */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: var(--color-background);
@@ -113,28 +96,25 @@ body {
   margin: 0;
   padding: 0;
 }
-
-/* Header */
 header {
   background: var(--color-header-bg);
   color: var(--color-text);
   padding: 1rem 0rem;
   display: flex;
-  justify-content: space-between;
+
   align-items: center;
-  position: fixed; /* Pysyy paikallaan */
+  position: fixed;
   left: 0;
   width: 100%;
-  z-index: 100; /* Varmistaa, että header näkyy muiden elementtien päällä */
+  z-index: 100;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 header h1 {
   margin: 0;
-  padding: 0px 20px;
+  margin-left: 20px;
+  margin-right: 8px;
   font-size: 1.8rem;
 }
-
 header nav a {
   color: var(--color-text);
   text-decoration: none;
@@ -142,42 +122,29 @@ header nav a {
   font-weight: 600;
   transition: color 0.3s;
 }
-
 header nav a:hover {
   color: var(--color-header-hover);
 }
-
 #nav-menu {
   display: flex;
   gap: 1rem;
   margin-left: auto;
 }
-
 #nav-menu a {
   text-decoration: none;
   color: var(--color-text);
   font-weight: 600;
 }
-
 #nav-menu a:hover {
   color: var(--color-header-hover);
 }
-
 .burger {
   display: none;
-  background: var(--color-header-bg);
-  border: 2px solid;
-  font-size: 2rem;
-  padding: 1px 7px;
   cursor: pointer;
-  color: var(--color-text);
 }
-
-/* Dropdown */
 .dropdown {
   position: relative;
 }
-
 .dropdown-content {
   display: none;
   position: absolute;
@@ -193,25 +160,20 @@ header nav a:hover {
   flex-direction: column;
   z-index: 200;
 }
-
 .dropdown.open .dropdown-content {
   display: flex;
 }
-
 #hero {
   position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
 }
-
 .hero-content {
   position: relative;
   width: 100%;
   height: 100%;
 }
-
-/* Taustakuva */
 .hero-image2 {
   position: absolute;
   inset: 0;
@@ -220,8 +182,6 @@ header nav a:hover {
   object-fit: cover;
   z-index: 1;
 }
-
-/* Logo vasempaan yläkulmaan kuvan päälle */
 .hero-logo {
   position: absolute;
   border-radius: 50%;
@@ -231,8 +191,6 @@ header nav a:hover {
   z-index: 3;
   filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.7));
 }
-
-/* Tekstit keskelle kuvan päälle */
 .hero-text {
   position: absolute;
   inset: 0;
@@ -246,21 +204,17 @@ header nav a:hover {
   padding: 1rem;
   background: var(--color-hero-text-bg);
 }
-
 .hero-text h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
 }
-
 .hero-text h2 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
 }
-
 .hero-text p {
   font-size: 1rem;
 }
-
 .h2 {
   font-size: 1.8rem;
   margin-top: 10px;
@@ -270,7 +224,6 @@ header nav a:hover {
   text-align: center;
   color: var(--color-text);
 }
-
 .h4 {
   font-size: 1.7rem;
   margin-top: 50px;
@@ -285,7 +238,6 @@ header nav a:hover {
   font-size: 1.3rem;
   margin-bottom: 30px;
 }
-
 .contact-container {
   display: flex;
   flex-direction: column;
@@ -302,13 +254,11 @@ header nav a:hover {
   margin-bottom: 70px;
   margin-top: 70px;
 }
-
 .contact-item {
   display: flex;
   align-items: center;
   gap: 5px;
 }
-
 .contact-icon {
   width: 24px;
   height: 24px;
@@ -326,7 +276,6 @@ header nav a:hover {
   margin: 0;
 }
 
-/* Tuotekortit */
 .Ensaymada-products {
   background: var(--color-add-btn-cd);
   padding: 20px 20px;
@@ -428,8 +377,13 @@ header nav a:hover {
   max-width: 200px;
   border-radius: 20px;
   text-decoration: none;
+  transition: transform 0.2s, filter 0.2s;
 }
-
+.products-may-contain:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+  background: var(--color-btn-hover-bg);
+}
 .product-card h3,
 .product-card p {
   color: var(--color-card-text);
@@ -460,8 +414,6 @@ header nav a:hover {
   align-items: center;
   line-height: 1;
 }
-
-/* Lisää ostoskoriin -nappi */
 .product-card .add-to-cart {
   background-color: var(--color-add-btn-bg);
   color: var(--color-add-btn-text);
@@ -487,11 +439,9 @@ header nav a:hover {
   padding: 10px 14px;
   font-size: 16px;
   cursor: pointer;
-  display: none; /* piilossa aluksi */
+  display: none;
   z-index: 1000;
 }
-
-/* Nappien yleinen tyyli */
 button,
 #orderForm button,
 .BackButton button {
@@ -548,7 +498,7 @@ button:hover,
   font-size: 0.85rem;
   font-weight: bold;
 
-  display: none; /* piilossa kun 0 */
+  display: none;
   align-items: center;
   justify-content: center;
 
@@ -561,9 +511,9 @@ button:hover,
 .popup-content {
   width: 70%;
   height: 100%;
-  max-height: 80vh; /* korkeus rajattu, scrollataan jos sisältö ylittää */
+  max-height: 80vh;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch; /* smooth scroll iOS:ssä */
+  -webkit-overflow-scrolling: touch;
 }
 .special-order h6 {
   font-weight: bold;
@@ -574,7 +524,6 @@ button:hover,
   background: rgb(233, 233, 233);
   color: black;
 }
-/* Ostoskori pop-up */
 #cartPopup {
   display: none;
   position: fixed;
@@ -598,7 +547,6 @@ button:hover,
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s;
 }
-
 #cartPopup .popup-content:hover {
   transform: translateY(-3px);
 }
@@ -612,12 +560,10 @@ button:hover,
   color: var(--color-cart-close);
   transition: color 0.3s;
 }
-
 #cartPopup #closeCart:hover {
   color: var(--color-cart-close-hover);
 }
 
-/* Lomake */
 #orderForm {
   display: flex;
   flex-direction: column;
@@ -640,10 +586,8 @@ button:hover,
 input,
 textarea,
 select {
-  caret-color: #000; /* että kursori näkyy varmasti */
+  caret-color: #000;
 }
-
-/* BackButton */
 .BackButton {
   text-align: center;
   margin: 2rem 0;
@@ -657,8 +601,6 @@ select {
 .BackButton button:hover {
   background: var(--color-btn-hover-bg);
 }
-
-/* Footer */
 
 footer .footer {
   display: flex;
@@ -687,47 +629,37 @@ footer .footer a:hover {
   color: #fff;
 }
 
-/* wrapper */
 .nav-lang {
-  position: relative; /* pysyy rivillä muiden linkkien kanssa */
+  position: relative;
 }
-
-/* nappi */
 .nav-lang-btn {
-  background: none;
+  background: var(--color-btn-bg);
   border: none;
   cursor: pointer;
   font: inherit;
   padding: 3px 6px;
 }
-
-/* dropdown lista – leijuu navin päällä */
 .nav-lang-dropdown {
   display: none;
   position: absolute;
-  top: 100%; /* suoraan napin alapuolelle */
+  top: 100%;
   left: 0;
   background: #fff;
   border: 1px solid #ddd;
   list-style: none;
   margin: 0;
   padding: 0;
-  min-width: 80px;
+  min-width: 50px;
   z-index: 2000;
 }
-
-/* yksittäiset vaihtoehdot */
 .nav-lang-dropdown li {
   padding: 4px 6px;
   cursor: pointer;
 }
-
-/* hover-efekti */
 .nav-lang-dropdown li:hover {
   background: #f3f3f3;
 }
 
-/* Liquid glass nappien ja popupin taustalle */
 .liquid-glass {
   background: var(--color-liquid-bg);
   backdrop-filter: blur(10px) saturate(150%);
@@ -737,8 +669,6 @@ footer .footer a:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
-
-/* Hover-efekti */
 .liquid-glass:hover {
   background: var(--color-liquid-hover-bg);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
@@ -746,24 +676,6 @@ footer .footer a:hover {
 }
 
 @media (max-width: 768px) {
-  .viewCartBtn {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    position: fixed;
-    bottom: auto;
-    right: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    position: absolute;
-  }
-
-  .viewCartBtn .cart-text {
-    display: none;
-  }
-
   .nav-lang-btn {
     display: block;
     right: 50px;
@@ -841,8 +753,6 @@ footer .footer a:hover {
     margin: auto;
   }
 
-  /* Lisää ostoskoriin -nappi */
-
   .product-card .add-to-cart {
     padding: 0.3rem 0.55rem;
     font-size: 0.7rem;
@@ -863,18 +773,85 @@ footer .footer a:hover {
     padding: 0;
   }
 }
+@media (max-width: 1024px) {
+  .hero-text {
+    color: rgb(255, 255, 255);
+
+    margin-top: 60px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-text h1 {
+    font-size: 1.9rem;
+  }
+  .hero-text h2 {
+    font-size: 1.4rem;
+  }
+  .hero-text p {
+    font-size: 1.4rem;
+  }
+
+  .hero-logo {
+    width: 140px;
+    top: 85px;
+    left: 20px;
+  }
+}
+@media (max-width: 680px) {
+  .hero-text {
+    color: rgb(255, 255, 255);
+
+    margin-top: 60px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-text h1 {
+    font-size: 1.6rem;
+  }
+  .hero-text h2 {
+    font-size: 1rem;
+  }
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .hero-logo {
+    width: 100px;
+    top: 85px;
+    left: 10px;
+  }
+}
 @media (max-width: 900px) {
-  /* Burger näkyviin */
+  .viewCartBtn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid;
+    position: fixed;
+    bottom: auto;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    position: absolute;
+  }
+
+  .viewCartBtn .cart-text {
+    display: none;
+  }
   .burger {
     display: block;
   }
-
-  /* Nav-menu piiloon ja pystysuoraan */
   #nav-menu {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 60px;
+    top: 64px;
     left: 0;
     right: 0;
     background: white;
@@ -885,11 +862,6 @@ footer .footer a:hover {
   #nav-menu.active {
     display: flex;
   }
-  .nav-lang {
-    position: relative; /* pysyy rivillä muiden linkkien kanssa */
-  }
-
-  /* Dropdown pystysuoraan */
   .dropdown-content {
     position: relative;
     display: none;
@@ -904,12 +876,15 @@ footer .footer a:hover {
     padding: 0.3rem 0;
   }
   #menu-toggle.burger {
-    border: 2px solid;
-    font-size: 1.2rem;
-    padding: 1px 5px;
+    position: absolute;
+    top: auto;
+    right: 60px;
+    border: 1px solid;
+    font-size: 1.3rem;
+    padding: 3px 7px;
     cursor: pointer;
-    color: var(--color-text);
-    margin-right: 10px;
+    border-radius: 50%;
+    background: var(--color-header-bg);
   }
   .Ensaymada-products h2,
   .hopia-products h2,
@@ -917,8 +892,6 @@ footer .footer a:hover {
   .spanish-products h2 {
     font-size: 1.2rem;
   }
-
-  /* --- Pienemmät laitteet, kuten puhelin vaakasuunnassa --- */
   @media (max-width: 450px) {
     header h1 {
       font-size: 1.1rem;
@@ -944,37 +917,35 @@ footer .footer a:hover {
       font-size: 0.75rem;
     }
     .hero-image2 {
-      margin-top: 60px;
       width: 100%;
       height: auto;
-      object-fit: contain;
+      position: relative;
+      margin-top: 52px;
     }
 
     .hero-text {
-      position: static !important;
-      background: none;
-      color: black;
-      margin: 0;
-      margin-top: 320px;
+      color: rgb(255, 255, 255);
 
+      margin-top: 52px;
       text-align: center;
-      width: 100%;
+      justify-content: center;
+      align-items: center;
     }
 
     .hero-text h1 {
-      font-size: 1.6rem;
+      font-size: 1.2rem;
     }
     .hero-text h2 {
-      font-size: 1rem;
+      font-size: 0.8rem;
     }
     .hero-text p {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
     }
 
     .hero-logo {
-      width: 120px;
-      top: 70px;
-      left: 10px;
+      width: 50px;
+      top: 65px;
+      left: 5px;
     }
     .parent {
       margin-top: 0px;
@@ -982,6 +953,18 @@ footer .footer a:hover {
     .parent h3 {
       font-size: 1.5rem;
       margin-top: 0;
+    }
+    #nav-menu {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 52px;
+      left: 0;
+      right: 0;
+      background: white;
+      padding: 1rem 2rem;
+      z-index: 99;
+      margin: 0;
     }
   }
   @media (max-width: 768px) {
@@ -1000,9 +983,7 @@ footer .footer a:hover {
       font-size: 0.7rem;
     }
   }
-  /* RESPONSIVE: Puhelimet ja pienet näytöt */
   @media (max-width: 480px) {
-    /* Popup keskitys ja skaalaus */
     #cartPopup .popup-content {
       height: 90%;
       width: 80%;
@@ -1027,23 +1008,18 @@ footer .footer a:hover {
     #orderForm label {
       font-size: 0.95rem;
     }
-    /* Close-ikoni hieman pienemmäksi ja lähemmäs reunaa */
-
-    /* Lomakekentät isommilla kosketusalueilla */
     #orderForm input,
     #orderForm select {
       padding: 0.3rem;
       font-size: 0.8rem;
     }
 
-    /* Painike isommaksi ja helpommaksi klikata */
     #orderForm button {
       padding: 0.8rem;
       font-size: 0.7rem;
       border-radius: 10px;
     }
 
-    /* BackButton keskitettynä ja isommalla painikkeella */
     .BackButton button {
       padding: 0.8rem 1.5rem;
       font-size: 1.05rem;
@@ -1056,7 +1032,7 @@ footer .footer a:hover {
       padding: 3px 7px;
       font-size: 16px;
       cursor: pointer;
-      display: none; /* piilossa aluksi */
+      display: none;
       z-index: 1000;
     }
     .products-may-contain {

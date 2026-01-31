@@ -1,6 +1,3 @@
-/* ============================
-   Perusasetukset
-============================ */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: #f5f5f5;
@@ -37,17 +34,9 @@ header button {
 header button:hover {
   background: #c0392b;
 }
-
-/* ============================
-     Pääsisältö
-  ============================ */
 main {
   padding: 2rem;
 }
-
-/* ============================
-     Tilauskortit
-  ============================ */
 #ordersTable {
   width: 100%;
   border-collapse: collapse;
@@ -73,10 +62,6 @@ main {
 #ordersTable tbody tr {
   transition: background 0.2s;
 }
-
-/* ============================
-     Painikkeet
-  ============================ */
 #refreshBtn,
 #clearBtn {
   background: #00347e;
@@ -94,10 +79,6 @@ main {
 #clearBtn:hover {
   background: #3a3d3f;
 }
-
-/* ============================
-     Responsiivisuus
-  ============================ */
 @media (max-width: 1024px) {
   #ordersTable th,
   #ordersTable td {
@@ -120,10 +101,6 @@ main {
     overflow-x: auto;
   }
 }
-
-/* ============================
-     Lisäefektit
-  ============================ */
 #ordersTable td {
   vertical-align: top;
 }
@@ -132,9 +109,6 @@ main {
   font-weight: bold;
   color: #2c3e50;
 }
-/* ============================
-   Painikkeiden hover-efekti
-============================ */
 #refreshBtn:hover,
 #clearBtn:hover,
 header button:hover {

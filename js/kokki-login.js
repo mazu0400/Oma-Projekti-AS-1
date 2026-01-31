@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      // Kirjautuminen onnistui, ohjataan kokki-näkymään
       window.location.href = "kokin.html";
     } catch (error) {
       console.error(error);

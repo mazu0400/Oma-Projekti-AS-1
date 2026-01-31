@@ -8,42 +8,32 @@ import {
   deleteDoc,
   doc,
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
-
-// Tarkista kirjautuminen
 auth.onAuthStateChanged((user) => {
   if (!user) {
     window.location.href = "kokki-login.html";
   }
 });
-
-// DOM-elementit
 const logoutBtn = document.getElementById("logoutBtn");
 const refreshBtn = document.getElementById("refreshBtn");
 const ordersTableBody = document.querySelector("#ordersTable tbody");
 const ordersDiv = document.getElementById("ordersDiv");
-
-// Tyhjennä napin luonti
 const clearBtn = document.createElement("button");
 clearBtn.textContent = "Tyhjennä tilaukset";
 clearBtn.style.marginLeft = "10px";
 ordersDiv.insertBefore(clearBtn, ordersDiv.firstChild);
 
-// Tallenna Exceliin -nappi
 const exportBtn = document.createElement("button");
 exportBtn.textContent = "Tallenna Exceliin";
 exportBtn.style.marginLeft = "10px";
 ordersDiv.insertBefore(exportBtn, ordersDiv.firstChild);
 
-// Logout
 logoutBtn.addEventListener("click", async () => {
   await signOut(auth);
   window.location.href = "index.html";
 });
 
-// Päivitysnapin click
 refreshBtn.addEventListener("click", loadOrders);
 
-// Tyhjennä kaikki tilaukset
 clearBtn.addEventListener("click", async () => {
   if (!confirm("Haluatko varmasti poistaa kaikki tilaukset?")) return;
   try {
@@ -60,7 +50,6 @@ clearBtn.addEventListener("click", async () => {
   }
 });
 
-// Tallenna Exceliin (CSV)
 exportBtn.addEventListener("click", () => {
   let csv =
     "Aikaleima,Nimi,Puhelin,Sähköposti,Osoite,Kaupunki,Toimitustapa,Haluttu toimitusaika,Tuotteet,Total\n";
@@ -84,8 +73,6 @@ exportBtn.addEventListener("click", () => {
   a.click();
   document.body.removeChild(a);
 });
-
-// Funktio tilausten lataukseen Firebasesta
 async function loadOrders() {
   ordersTableBody.innerHTML = "";
   try {
@@ -122,7 +109,7 @@ async function loadOrders() {
         if (confirm("Haluatko varmasti poistaa tämän tilauksen?")) {
           try {
             await deleteDoc(doc(db, "orders", docSnap.id));
-            await loadOrders(); // Päivitä taulukko poiston jälkeen
+            await loadOrders();
           } catch (err) {
             console.error(err);
             alert("Tilausta ei voitu poistaa!");
@@ -136,6 +123,4 @@ async function loadOrders() {
     ordersTableBody.innerHTML = `<tr><td colspan="11">Virhe latauksessa</td></tr>`;
   }
 }
-
-// Kutsu funktio heti
 loadOrders();

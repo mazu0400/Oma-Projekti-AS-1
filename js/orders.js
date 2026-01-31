@@ -4,18 +4,15 @@ import {
   addDoc,
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
-// ==================== NAV ====================
 const menuToggle = document.getElementById("menu-toggle");
 const navMenu = document.getElementById("nav-menu");
 const dropdown = document.querySelector(".dropdown");
 const dropdownToggle = document.querySelector(".dropdown-toggle");
 
-// Burger toggle mobiilissa
 menuToggle.addEventListener("click", () => {
   navMenu.classList.toggle("active");
 });
 
-// Desktop hover dropdown
 dropdown.addEventListener("mouseenter", () => {
   if (window.innerWidth > 900) dropdown.classList.add("open");
 });
@@ -23,7 +20,6 @@ dropdown.addEventListener("mouseleave", () => {
   if (window.innerWidth > 900) dropdown.classList.remove("open");
 });
 
-// Mobile dropdown toggle
 dropdownToggle.addEventListener("click", (e) => {
   if (window.innerWidth <= 900) {
     e.preventDefault();
@@ -31,7 +27,6 @@ dropdownToggle.addEventListener("click", (e) => {
   }
 });
 
-// Sulje nav mobiilissa linkin klikkauksella (mutta ei dropdown-togglea)
 document.querySelectorAll("#nav-menu a").forEach((link) => {
   link.addEventListener("click", () => {
     if (
@@ -44,7 +39,6 @@ document.querySelectorAll("#nav-menu a").forEach((link) => {
   });
 });
 
-// Sulje nav ja dropdown jos resize > 900px
 window.addEventListener("resize", () => {
   if (window.innerWidth > 900) {
     navMenu.classList.remove("active");
@@ -52,10 +46,8 @@ window.addEventListener("resize", () => {
   }
 });
 
-// ==================== OSTOSKORI ====================
 let cart = [];
 
-// DOM-elementit
 const ensaymadaSection = document.getElementById("ensaymada");
 const hopiaSection = document.getElementById("hopia");
 const otherSection = document.getElementById("other");
@@ -71,8 +63,6 @@ const cartCountEl = document.getElementById("cart-count");
 const deliveryTimeInput = document.getElementById("deliveryTime");
 const clearCartBtn = document.getElementById("clearCartBtn");
 
-// ==================== TUOTTEET ====================
-//tuotteet
 const PRODUCTS = [
   // ENSAYMADA
   {
@@ -119,14 +109,14 @@ const PRODUCTS = [
   },
   {
     id: "ens_cream_half",
-    name: "Ensaymada Cream Cheese ½ box",
+    name: "Cream Cheese ½ box",
     price: 13,
     img: "Image/Tuotteet/Image/cream.jpg",
     category: "ensaymada",
   },
   {
     id: "ens_cream_full",
-    name: "Ensaymada Cream Cheese 1 box",
+    name: " Cream Cheese 1 box",
     price: 25,
     img: "Image/Tuotteet/Image/cream.jpg",
     category: "ensaymada",
@@ -149,14 +139,14 @@ const PRODUCTS = [
   // HOPIA
   {
     id: "hop_assorted_half",
-    name: "Hopia Assorted ½ box",
+    name: "Assorted ½ box",
     price: 12,
     img: "Image/Tuotteet/Image/assor.hopia.jpg",
     category: "hopia",
   },
   {
     id: "hop_assorted_full",
-    name: "Hopia Assorted 1 box",
+    name: "Assorted 1 box",
     price: 24,
     img: "Image/Tuotteet/Image/assor.hopia.jpg",
     category: "hopia",
@@ -191,14 +181,14 @@ const PRODUCTS = [
   },
   {
     id: "hop_munggo_half",
-    name: "Hopia Munggo ½ box",
+    name: "Munggo ½ box",
     price: 12,
     img: "",
     category: "hopia",
   },
   {
     id: "hop_munggo_full",
-    name: "Hopia Munggo 1 box",
+    name: "Munggo 1 box",
     price: 24,
     img: "",
     category: "hopia",
@@ -228,7 +218,7 @@ const PRODUCTS = [
   },
   {
     id: "cheesy_mamon",
-    name: "Cheesy Mamon ½ box",
+    name: " Mamon ½ box",
     price: 13,
     img: "Image/Tuotteet/Image/cheesyMamon.jpg",
     category: "other",
@@ -293,21 +283,21 @@ const PRODUCTS = [
   },
   {
     id: "span_ube",
-    name: "Spanish Bread Ube",
+    name: "Spanish Bread Ube 1box",
     price: 12,
     img: "",
     category: "spanish",
   },
   {
     id: "ube_halaya",
-    name: "Ube Halaya",
+    name: "Spanish Bread Ube Halaya",
     price: 10,
     img: "Image/Tuotteet/Image/Ube.halaya.jpg",
     category: "spanish",
   },
   {
     id: "empanada_half",
-    name: "Empanada ½ box",
+    name: "Spanish Bread Empanada ½ box",
     price: 12,
     img: "Image/Tuotteet/Image/empanada_full.JPG",
     category: "spanish",
@@ -336,35 +326,34 @@ const PRODUCTS = [
 
   {
     id: "ube_pandekeso",
-    name: "Ube Pandekeso",
+    name: "Spanish Bread Ube Pandekeso",
     price: 10,
     img: "",
     category: "spanish",
   },
   {
     id: "chicharon_single",
-    name: "Chicharon 1 pcs",
+    name: "Spanish Bread Chicharon 1 pcs",
     price: 8,
     img: "",
     category: "spanish",
   },
   {
     id: "chicharon_three",
-    name: "Chicharon 3 pcs",
+    name: "Spanish Bread Chicharon 3 pcs",
     price: 20,
     img: "",
     category: "spanish",
   },
   {
     id: "suka",
-    name: "Suka",
+    name: "Spanish Bread Suka 1 box",
     price: 3.5,
     img: "",
     category: "spanish",
   },
 ];
 
-// Luo tuotekortit
 PRODUCTS.forEach((p) => {
   const div = document.createElement("div");
   div.className = "product-card";
@@ -409,8 +398,6 @@ PRODUCTS.forEach((p) => {
     updateCartBadge();
   });
 });
-
-// ==================== FUNKTIOT ====================
 function updateCartBadge() {
   const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
   if (totalQty > 0) {
@@ -435,7 +422,7 @@ function updateCartPopup() {
 
 function setMinDeliveryDate() {
   const now = new Date();
-  now.setDate(now.getDate() + 1); // seuraava päivä
+  now.setDate(now.getDate() + 1);
   now.setHours(0, 0, 0, 0);
   const year = now.getFullYear();
   const month = String(now.getMonth() + 1).padStart(2, "0");
@@ -445,8 +432,6 @@ function setMinDeliveryDate() {
 
   deliveryTimeInput.min = `${year}-${month}-${day}T${hours}:${minutes}`;
 }
-
-// ==================== EVENT LISTENERIT ====================
 setMinDeliveryDate();
 
 viewCartBtn.addEventListener("click", () => {
@@ -541,7 +526,7 @@ orderForm.addEventListener("submit", async (e) => {
     updateCartBadge();
     cartPopup.style.display = "none";
     orderForm.reset();
-    setMinDeliveryDate(); // resetoi min date
+    setMinDeliveryDate();
   } catch (err) {
     console.error(err);
     alert("Order failed.");

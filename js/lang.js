@@ -322,27 +322,23 @@ function setLanguage(lang) {
     }
   });
 
-  // Tallennetaan vain käyttäjän valinta
   if (lang !== "en") {
     localStorage.setItem("lang", lang);
   } else {
-    localStorage.removeItem("lang"); // englanti = oletus, ei tallenneta
+    localStorage.removeItem("lang");
   }
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  let lang = localStorage.getItem("lang"); // tarkista aiempi valinta
+  let lang = localStorage.getItem("lang");
   if (!lang) {
-    lang = "en"; // oletus aina englanti
+    lang = "en";
   }
   setLanguage(lang);
-
-  // Päivitä kielinappi
   const langBtn = document.querySelector(".nav-lang-btn");
   if (langBtn) langBtn.textContent = lang.toUpperCase() + " ▾";
 });
 
-// Kielivalikko logiikka
 const langBtn = document.querySelector(".nav-lang-btn");
 const langDropdown = document.querySelector(".nav-lang-dropdown");
 
@@ -356,7 +352,7 @@ if (langBtn && langDropdown) {
   document.querySelectorAll(".nav-lang-dropdown li").forEach((item) => {
     item.addEventListener("click", () => {
       const lang = item.dataset.lang;
-      setLanguage(lang); // vaihtaa kielen
+      setLanguage(lang);
       langDropdown.style.display = "none";
       langBtn.textContent = lang.toUpperCase() + " ▾";
     });

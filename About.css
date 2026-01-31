@@ -1,14 +1,10 @@
-/* ===================== Variables ===================== */
 :root {
-  /* Perusvärit */
   --color-background: linear-gradient(
     0deg,
     rgba(219, 189, 130, 0.369) 0%,
     rgba(219, 189, 130, 0.436) 100%
   );
   --color-text: #1f1f23;
-
-  /* Header */
   --color-header-bg: linear-gradient(
     0deg,
     rgba(214, 181, 104, 1) 0%,
@@ -16,17 +12,12 @@
     rgba(214, 181, 104, 1) 100%
   );
   --color-header-hover: #ff6f61;
-
-  /* Hero */
   --color-hero-text-bg: rgba(0, 0, 0, 0.4);
   --color-hero-text: #ffffff;
-
-  /* Text & Cards */
   --color-card-bg: #fff1e8;
   --color-card-text: #1f1f23;
 }
 
-/* ===================== Global ===================== */
 body {
   margin: 0;
   padding: 0;
@@ -42,8 +33,6 @@ h3,
 h4 {
   margin: 0.5em 0;
 }
-
-/* ===================== Hero ===================== */
 .hero-abaut {
   display: flex;
   flex-direction: column;
@@ -66,8 +55,6 @@ h4 {
   color: var(--color-hero-text);
   max-width: 800px;
 }
-
-/* ===================== About Products ===================== */
 .Abaut-Products {
   padding: 2rem 1rem;
   text-align: center;
@@ -83,15 +70,12 @@ h4 {
   font-size: 1.1rem;
   margin-top: 0;
 }
-
-/* ===================== Deliveries ===================== */
 .about-deliveries {
   padding: 1.5rem 1rem;
   text-align: center;
   font-size: 1rem;
   background: var(--color-card-bg);
 }
-/* ===================== Back to Home Button ===================== */
 .back-home {
   display: inline-flex;
   align-items: center;
@@ -114,7 +98,6 @@ h4 {
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
-/* ===================== Footer ===================== */
 footer .footer {
   display: flex;
   justify-content: space-between;
@@ -144,7 +127,6 @@ footer .footer a:hover {
   color: #fff;
 }
 
-/* ===================== Responsiivisuus ===================== */
 @media (max-width: 768px) {
   footer .footer {
     flex-direction: column;
@@ -160,8 +142,6 @@ footer .footer a:hover {
     font-size: 0.7rem;
   }
 }
-
-/* Mobiili- ja pienemmät näytöt */
 @media (max-width: 450px) {
   .back-home {
     padding: 0.5rem 0.8rem;
@@ -169,8 +149,6 @@ footer .footer a:hover {
     border-radius: 10px;
   }
 }
-
-/* ===================== Responsiivisuus ===================== */
 @media (max-width: 768px) {
   .hero-abaut h1 {
     font-size: 1.5rem;
