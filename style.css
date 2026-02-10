@@ -319,7 +319,7 @@ header nav a:hover {
   background: var(--color-card-bg);
   padding: 1rem;
   width: 100%;
-  max-width: 230px;
+  max-width: 240px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
