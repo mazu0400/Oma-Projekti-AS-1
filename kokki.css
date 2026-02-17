@@ -1,0 +1,117 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background: #233753;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+header button {
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+header button:hover {
+  background: #c0392b;
+}
+main {
+  padding: 2rem;
+}
+#ordersTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+#ordersTable thead {
+  background: #00347e;
+  color: white;
+}
+
+#ordersTable th,
+#ordersTable td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+#ordersTable tbody tr:hover {
+  background: #ecf0f1;
+}
+
+#ordersTable tbody tr {
+  transition: background 0.2s;
+}
+#refreshBtn,
+#clearBtn {
+  background: #00347e;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 1rem;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+#refreshBtn:hover,
+#clearBtn:hover {
+  background: #3a3d3f;
+}
+@media (max-width: 1024px) {
+  #ordersTable th,
+  #ordersTable td {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  header button {
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  #ordersTable {
+    display: block;
+    overflow-x: auto;
+  }
+}
+#ordersTable td {
+  vertical-align: top;
+}
+
+#ordersTable tbody tr td:first-child {
+  font-weight: bold;
+  color: #2c3e50;
+}
+#refreshBtn:hover,
+#clearBtn:hover,
+header button:hover {
+  background-color: #000000; /* selkeästi erottuva väri hoverissa */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* näkyvä varjo */
+}

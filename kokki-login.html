@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kokki Kirjautuminen</title>
+    <link rel="stylesheet" href="kokki-login.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <h1 data-key="LoginKokki">Kokki Kirjaudu</h1>
+      <input type="email" id="emailInput" placeholder="Email" />
+      <input type="password" id="passwordInput" placeholder="Password" />
+      <button id="loginBtn" data-key="loginkokkibtn">Kirjaudu sisään</button>
+      <p id="errorMsg" style="color: red; display: none" data-key="errorMsg">
+        Väärä sähköposti tai salasana
+      </p>
+    </div>
+    <a href="index.html" class="back-home" data-key="backhome"
+      >Takaisin Etusivulle</a
+    >
+    <script type="module" src="./js/lang.js"></script>
+
+    <script type="module" src="./js/kokki-login.js"></script>
+  </body>
+</html>

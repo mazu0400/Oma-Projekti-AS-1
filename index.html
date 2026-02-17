@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"
+    />
+    <title data-key="siteTitle">Pinoy Delicacies</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="./js/firebase-config.js"></script>
+    <script type="module" src="./js/orders.js"></script>
+    <script type="module" src="./js/topBtn.js"></script>
+    <script type="module" src="./js/lang.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Pinoy Delicacies</h1>
+      <div class="nav-lang">
+        <button class="nav-lang-btn">🌐 ▾</button>
+        <ul class="nav-lang-dropdown">
+          <li data-lang="en">English</li>
+          <li data-lang="fi">Suomi</li>
+          <li data-lang="tl">filipino</li>
+        </ul>
+      </div>
+      <button id="menu-toggle" class="burger">☰</button>
+
+      <nav id="nav-menu">
+        <a href="index.html" data-key="home">Home</a>
+        <div class="dropdown">
+          <a href="#" class="dropdown-toggle" data-key="products">Products ▾</a>
+          <div class="dropdown-content">
+            <a href="#ensaymada">Ensaymada</a>
+            <a href="#hopia">Hopia</a>
+            <a href="#other" data-key="others">Others</a>
+            <a href="#spanish" data-key="spanish">Spanish Bread</a>
+          </div>
+        </div>
+        <a href="Tietoja.html" data-key="about">About Us</a>
+      </nav>
+
+      <a href="#" id="viewCartBtn" class="viewCartBtn">
+        <span class="cart-text" data-key="cart">Cart</span>
+        <span class="cart-icon">🛒</span>
+        <span id="cart-count" class="cart-count">0</span>
+      </a>
+    </header>
+
+    <main>
+      <section id="hero">
+        <div class="hero-content">
+          <img
+            src="Image/WhatsApp Image 2025-09-23 at 21.04.09_708a4cac-1.jpg"
+            alt="Filipino food"
+            class="hero-image2"
+          />
+          <img src="Image/hero.logo2.jpg" alt="logo" class="hero-logo" />
+
+          <div class="hero-text">
+            <h1 data-key="heroTitle">Authentic Filipino treats from Finland</h1>
+            <h2 data-key="heroSubtitle">
+              Products prepared according to local recipes
+            </h2>
+            <p data-key="heroText">
+              Choose your favorites and order easily for delivery or pickup.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="Products">
+        <div class="parent">
+          <h3 class="h3" data-key="products">Products</h3>
+        </div>
+
+        <div class="Ensaymada-products">
+          <h2 class="h2">Ensaymada</h2>
+          <a
+            href="Tietoja.html"
+            class="products-may-contain"
+            data-key="allergens"
+            >Allergen information →</a
+          >
+          <section id="ensaymada" class="products"></section>
+        </div>
+
+        <div class="hopia-products">
+          <h2 class="h2">Hopia</h2>
+          <a
+            href="Tietoja.html"
+            class="products-may-contain"
+            data-key="allergens"
+            >Allergen information →</a
+          >
+          <section id="hopia" class="products"></section>
+        </div>
+
+        <div class="other-products">
+          <h2 class="h2" data-key="others">Other Products</h2>
+          <a
+            href="Tietoja.html"
+            class="products-may-contain"
+            data-key="allergens"
+            >Allergen information →</a
+          >
+          <section id="other" class="products"></section>
+        </div>
+
+        <div class="spanish-products">
+          <h2 class="h2" data-key="spanish">Spanish Bread</h2>
+          <a
+            href="Tietoja.html"
+            class="products-may-contain"
+            data-key="allergens"
+            >Allergen information →</a
+          >
+          <section id="spanish" class="products"></section>
+        </div>
+      </div>
+    </main>
+    <div id="cartPopup" class="liquid-glass">
+      <div class="popup-content liquid-glass">
+        <span id="closeCart">&times;</span>
+        <h2 data-key="cartTitle">Your Shopping Cart</h2>
+
+        <div class="special-order">
+          <h6 data-key="specialOrderNote">
+            HUOM! Special orders, such as allergen modifications or individual
+            requests, are only accepted by phone.<br />
+            Please contact us using the phone number on the homepage.
+          </h6>
+        </div>
+
+        <div id="cartItems"></div>
+        <p>
+          <span data-key="totalPrice">Total Price</span>:
+          <span id="totalPrice">0</span> €
+        </p>
+
+        <form id="orderForm">
+          <label>
+            <span data-key="name">Name</span>:
+            <input type="text" id="customerName" required />
+          </label>
+
+          <label>
+            <span data-key="phone">Phone</span>:
+            <input type="text" id="customerPhone" required />
+          </label>
+
+          <label>
+            <span data-key="email">Email</span>:
+            <input type="text" id="customerEmail" required />
+          </label>
+
+          <label>
+            <span data-key="address">Address</span>:
+            <input type="text" id="customerAddress" required />
+          </label>
+
+          <label>
+            <span data-key="city">City</span>:
+            <input type="text" id="customerCity" required />
+          </label>
+
+          <label>
+            <span data-key="deliveryMethod">Delivery Method</span>:
+            <select id="deliveryMethod" required>
+              <option value="pickup" data-key="pickup">Pickup</option>
+              <option value="delivery" data-key="delivery">Delivery</option>
+            </select>
+          </label>
+
+          <p data-key="deliveryNote">
+            NOTE! (DELIVERIES AFTER 7 PM ON WEEKDAYS AND AFTER 10 PM ON
+            WEEKENDS)
+          </p>
+
+          <label>
+            <span data-key="deliveryTime">Desired Delivery Time</span>:
+            <input type="datetime-local" id="deliveryTime" required />
+          </label>
+
+          <label>
+            <input type="checkbox" id="consent" required />
+            <span data-key="consent">
+              I agree that my information will be used for order processing.
+            </span>
+          </label>
+
+          <p>
+            <span data-key="privacyText">Read our</span>
+            <a
+              href="Tietosuojaseloste.html"
+              target="_blank"
+              data-key="privacyPolicy"
+            >
+              privacy policy
+            </a>
+          </p>
+
+          <button type="submit" data-key="submitOrder">Submit Order</button>
+          <button type="button" id="clearCartBtn" data-key="clearCart">
+            Clear Cart
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <button id="topBtn">↑</button>
+
+    <div class="contact-container">
+      <h5 data-key="contact">Contact Us</h5>
+
+      <div class="contact-item">
+        <p><strong data-key="phone">Phone</strong>: 0402184623</p>
+      </div>
+      <div class="contact">
+        <p><strong data-key="phone">Phone</strong>: 0400805705</p>
+      </div>
+      <div class="contact-item">
+        <p><strong>Email</strong>: erlindawessman@yahoo.com</p>
+      </div>
+
+      <div class="contact-item">
+        <p>
+          <strong data-key="address">Address</strong>: Ristihaantie 11, Espoo
+          02750
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer">
+        <p>
+          <a href="Tietosuojaseloste.html" data-key="privacyPolicy"
+            >Privacy Policy</a
+          >
+        </p>
+        <p>
+          <a href="https://www.instagram.com/tolvanematiaz/" target="_blank">
+            Instagram:@tolvanematiaz </a
+          ><br />
+          <br />
+          &copy; 2025 <span data-key="footerBy">By</span> Matias Tolvanen
+        </p>
+        <a href="kokki-login.html" data-key="chefView">Chef View</a>
+      </div>
+    </footer>
+  </body>
+</html>
