@@ -3,6 +3,7 @@ import {
   collection,
   addDoc,
 } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+import { getToken } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app-check.js";
 
 const menuToggle = document.getElementById("menu-toggle");
 const navMenu = document.getElementById("nav-menu");
@@ -594,6 +595,7 @@ const order = {
 };
 
   try {
+      await getToken(firebase.app(), true);
     await addDoc(collection(db, "orders"), order);
     alert("Order submitted!");
     cart = [];
