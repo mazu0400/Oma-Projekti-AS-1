@@ -24,7 +24,7 @@ const translations = {
     pickup: "Pickup",
     delivery: "Delivery",
     deliveryNote:
-      "NOTE! (DELIVERIES AFTER 7 PM ON WEEKDAYS AND AFTER 10 PM ON WEEKENDS)",
+      "NOTE! (DELIVERIES AFTER 7 PM ON WEEKDAYS AND AFTER 10 AM ON WEEKENDS)",
     deliveryTime: "Desired Delivery Time",
     consent: "I agree that my information will be used for order processing.",
     privacyText: "Read our",
@@ -126,7 +126,7 @@ For deliveries to the rest of Finland via Matkahuolto, please place your order a
     pickup: "Nouto",
     delivery: "Kotiinkuljetus",
     deliveryNote:
-      "HUOM! (TOIMITUKSET ARKISIN KLO 19 JÄLKEEN JA VIIKONLOPPUISIN KLO 22 JÄLKEEN)",
+      "HUOM! (TOIMITUKSET ARKISIN KLO 19 JÄLKEEN JA VIIKONLOPPUISIN KLO 10 JÄLKEEN)",
     deliveryTime: "Toivottu toimitusaika",
     consent: "Hyväksyn, että tietojani käytetään tilauksen käsittelyyn.",
     privacyText: "Lue",
@@ -231,7 +231,7 @@ Muualle Suomeen Matkahuollon kautta, ota yhteyttä puhelimitse tilauksen yhteyde
     pickup: "Pickup",
     delivery: "Delivery",
     deliveryNote:
-      "PAALALA! (PAGHAHATID PAGKATAPOS NG 7 PM SA MGA ARAW NG TRABAHO AT PAGKATAPOS NG 10 PM SA WEEKEND)",
+      "PAALALA! (PAGHAHATID PAGKATAPOS NG 7 PM SA MGA ARAW NG TRABAHO AT PAGKATAPOS NG 10 AM SA WEEKEND)",
     deliveryTime: "Nais na Oras ng Paghatid",
     consent:
       "Sang-ayon ako na gagamitin ang aking impormasyon para sa pagproseso ng order.",
