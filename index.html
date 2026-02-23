@@ -170,18 +170,29 @@
             <input type="text" id="customerCity" required />
           </label>
 
-          <label>
-            <span data-key="deliveryMethod">Delivery Method</span>:
-            <select id="deliveryMethod" required>
-              <option value="pickup" data-key="pickup">Pickup</option>
-              <option value="delivery" data-key="delivery">Delivery</option>
-            </select>
-          </label>
-          <label>
-            <h5>Send message</h5>
-            <input type="text" id="text" >
-          
-          </label>
+     <label>
+  <span data-key="deliveryMethod">Delivery Method</span>:
+  <select id="deliveryMethod" required>
+    <option value="pickup" data-key="pickup">Pickup</option>
+    <option value="delivery" data-key="delivery">Delivery</option>
+  </select>
+</label>
+<div id="cityContainer" style="display: none;">
+  <label>
+    <span>Choose City:</span>
+    <select id="city">
+      <option value="helsinki" data-price="10">Helsinki - 10€</option>
+      <option value="kirkkonummi" data-price="8">Kirkkonummi - 8€</option>
+      <option value="vantaa" data-price="12">Vantaa - 12€</option>
+         <option value="tuusula" data-price="12">Tuusula - 12€</option>
+            <option value="jarvenpaa" data-price="12">Järvenpää - 12€</option>
+    </select>
+  </label>
+</div>
+
+  <label for="orderMessage">send message</label>
+<textarea id="orderMessage" name="orderMessage" rows="4" placeholder="Send"></textarea>
+
 
           <p data-key="deliveryNote">
             NOTE! (DELIVERIES AFTER 7 PM ON WEEKDAYS AND AFTER 10 AM ON

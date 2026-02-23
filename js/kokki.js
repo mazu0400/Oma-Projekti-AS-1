@@ -87,23 +87,29 @@ async function loadOrders() {
 
     snapshot.forEach((docSnap) => {
       const data = docSnap.data();
+      const deliveryCity =
+        data.delivery?.city || data.deliveryCity || data.selectedCity || data.city || data.customer?.city || "";
+      const messageText = data.message || data.orderMessage || data.note || "";
       const row = document.createElement("tr");
       const productsText =
         data.items?.map((i) => `${i.product} x ${i.qty}`).join(", ") || "";
 
-      row.innerHTML = `
-        <td>${new Date(data.created).toLocaleString()}</td>
-        <td>${data.customer?.name || ""}</td>
-        <td>${data.customer?.phone || ""}</td>
-        <td>${data.customer?.email || ""}</td>
-        <td>${data.customer?.address || ""}</td>
-        <td>${data.customer?.city || ""}</td>
-        <td>${data.delivery?.method || ""}</td>
-        <td>${data.delivery?.time || ""}</td>
-        <td>${productsText}</td>
-        <td>${data.total || 0} </td>
-        <td><button class="deleteBtn">Poista</button></td>
-      `;
+ row.innerHTML = `
+  <td>${new Date(data.created).toLocaleString()}</td>
+  <td>${data.customer?.name || ""}</td>
+  <td>${data.customer?.phone || ""}</td>
+  <td>${data.customer?.email || ""}</td>
+  <td>${data.customer?.address || ""}</td>
+  <td>${data.customer?.city || ""}</td>
+  <td>${data.delivery?.method || ""}</td>
+  <td>${deliveryCity}</td>
+  <td>${data.delivery?.time || ""}</td>
+  <td>${productsText}</td>
+  <td>${data.deliveryPrice || 0}</td>
+  <td>${data.total || 0} </td>
+  <td>${messageText}</td>
+  <td><button class="deleteBtn">Poista</button></td>
+`;
       const deleteBtn = row.querySelector(".deleteBtn");
       deleteBtn.addEventListener("click", async () => {
         if (confirm("Haluatko varmasti poistaa tämän tilauksen?")) {

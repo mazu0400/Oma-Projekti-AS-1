@@ -443,7 +443,6 @@ function updateCartBadge() {
     cartCountEl.style.display = "none";
   }
 }
-
 function updateCartPopup() {
   cartItemsDiv.innerHTML = "";
   let total = 0;
@@ -453,7 +452,7 @@ function updateCartPopup() {
     cartItemsDiv.appendChild(div);
     total += item.price * item.qty;
   });
-  totalPriceSpan.textContent = total;
+  totalPriceSpan.textContent = total.toFixed(2);
 }
 
 function setMinDeliveryDate() {
@@ -469,6 +468,35 @@ function setMinDeliveryDate() {
   deliveryTimeInput.min = `${year}-${month}-${day}T${hours}:${minutes}`;
 }
 setMinDeliveryDate();
+
+// Haetaan elementit
+const deliveryMethod = document.getElementById("deliveryMethod");
+const cityContainer = document.getElementById("cityContainer");
+const citySelect = document.getElementById("city");
+
+// Näytetään kaupunki-valikko, jos toimitustapa on delivery
+deliveryMethod.addEventListener("change", () => {
+  if (deliveryMethod.value === "delivery") {
+    cityContainer.style.display = "block";
+    updateTotalPrice(); // Päivitetään hinta heti
+  } else {
+    cityContainer.style.display = "none";
+    updateTotalPrice(); // Päivitetään hinta, jos ei toimitusta
+  }
+});
+
+// Päivitetään hinta, kun kaupunki valitaan
+citySelect.addEventListener("change", updateTotalPrice);
+
+function updateTotalPrice() {
+  let total = cart.reduce((sum, c) => sum + c.price * c.qty, 0);
+  if (deliveryMethod.value === "delivery") {
+    const selectedCity = citySelect.options[citySelect.selectedIndex];
+    const deliveryPrice = parseFloat(selectedCity.getAttribute("data-price")) || 0;
+    total += deliveryPrice;
+  }
+  totalPriceSpan.textContent = total.toFixed(2) + " €";
+}
 
 viewCartBtn.addEventListener("click", () => {
   updateCartPopup();
@@ -526,10 +554,11 @@ orderForm.addEventListener("submit", async (e) => {
   const email = document.getElementById("customerEmail").value.trim();
   const phone = document.getElementById("customerPhone").value.trim();
   const address = document.getElementById("customerAddress").value.trim();
+ 
   const city = document.getElementById("customerCity").value.trim();
   const deliveryMethod = document.getElementById("deliveryMethod").value;
   const deliveryTime = deliveryTimeInput.value;
-
+const message = document.getElementById("orderMessage").value.trim();
   if (
     !name ||
     !phone ||
@@ -546,13 +575,23 @@ orderForm.addEventListener("submit", async (e) => {
       "Please accept the processing of your data before submitting the order."
     );
 
-  const order = {
-    created: new Date().toISOString(),
-    customer: { name, phone, email, address, city },
-    delivery: { method: deliveryMethod, time: deliveryTime },
-    items: cart.map((c) => ({ product: c.name, qty: c.qty, unit: c.price })),
-    total: cart.reduce((sum, c) => sum + c.price * c.qty, 0),
-  };
+let total = cart.reduce((sum, c) => sum + c.price * c.qty, 0);
+let deliveryPrice = 0;
+if (document.getElementById("deliveryMethod").value === "delivery") {
+  const selected = citySelect.options[citySelect.selectedIndex];
+  deliveryPrice = parseFloat(selected?.getAttribute("data-price")) || 0;
+  total += deliveryPrice;
+}
+
+const order = {
+  created: new Date().toISOString(),
+  customer: { name, phone, email, address, city },  // Tämä on asiakkaan antama kaupunki
+  delivery: { method: deliveryMethod, time: deliveryTime, city: citySelect.value }, // Tämä on valittu toimituskaupunki
+  items: cart.map((c) => ({ product: c.name, qty: c.qty, unit: c.price })),
+  total: total,
+  deliveryPrice: deliveryPrice,
+  message: message // Tämä on asiakkaan viesti
+};
 
   try {
     await addDoc(collection(db, "orders"), order);
