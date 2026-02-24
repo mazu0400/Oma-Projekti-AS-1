@@ -179,22 +179,23 @@
 </label>
 <div id="cityContainer" style="display: none;">
   <label>
-    <span>Choose City:</span>
+    <span data-key="chooseCity">Choose City:</span>
     <select id="city">
-      <option value="Valitse" data-price="0">Select</option>
-      <option value="helsinki" data-price="3">Helsinki - 3€</option>
-      <option value="kirkkonummi" data-price="5">Kirkkonummi - 5€</option>
-      <option value="vantaa" data-price="3">Vantaa - 3€</option>
-         <option value="tuusula" data-price="10">Tuusula - 10€</option>
-            <option value="jarvenpaa" data-price="10">Järvenpää - 10€</option>
-            <option value="nurmijarvi" data-price="10">Nurmijärvi - 10€</option>
+      <option value="Valitse" data-key="selectOption" data-price="0">Select</option>
+      <option value="helsinki" data-key="cityhelsinki" data-price="3">Helsinki</option>
+      <option value="kirkkonummi" data-key="citykirkkonummi" data-price="5">Kirkkonummi</option>
+      <option value="vantaa" data-key="cityvantaa" data-price="3">Vantaa</option>
+         <option value="tuusula" data-key="citytuusula" data-price="10">Tuusula</option>
+            <option value="jarvenpaa" data-key="cityjarvenpaa" data-price="10">Järvenpää</option>
+            <option value="nurmijarvi" data-key="citynurmijarvi" data-price="10">Nurmijärvi</option>
     </select>
     
   </label>
 </div>
 
-  <label for="orderMessage">send message</label>
-<textarea id="orderMessage" name="orderMessage" rows="4" placeholder="Send"></textarea>
+
+  <label for="orderMessage" data-key="sendMessageLabel">send message</label>
+  <textarea id="orderMessage" name="orderMessage" rows="4"  placeholder="......"></textarea>
 
 
           <p data-key="deliveryNote">

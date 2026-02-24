@@ -92,7 +92,7 @@ async function loadOrders() {
       const messageText = data.message || data.orderMessage || data.note || "";
       const row = document.createElement("tr");
       const productsText =
-        data.items?.map((i) => `${i.product} x ${i.qty}`).join(", ") || "";
+        data.items?.map((i) => `${i.product} x ${i.qty}= ${i.unit * i.qty} €`).join(", ") || "";
 
  row.innerHTML = `
   <td>${new Date(data.created).toLocaleString()}</td>

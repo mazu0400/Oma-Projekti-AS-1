@@ -445,12 +445,35 @@ function updateCartBadge() {
 function updateCartPopup() {
   cartItemsDiv.innerHTML = "";
   let total = 0;
+
+  // show selected delivery city up front if delivering (with translation support)
+  if (deliveryMethod.value === "delivery") {
+    const selectedCity = citySelect.options[citySelect.selectedIndex];
+    const deliveryPrice = parseFloat(selectedCity.getAttribute("data-price")) || 0;
+    // always use the option's text (which is translated via data-key)
+    const cityName = selectedCity.textContent;    const cityDiv = document.createElement("div");
+    // label span will be translated by setLanguage()
+    const cityLabel = document.createElement("span");
+    cityLabel.setAttribute("data-key", "deliveryCity");
+    cityDiv.appendChild(cityLabel);
+    cityDiv.appendChild(document.createTextNode(` ${cityName} (+${deliveryPrice.toFixed(2)} €)`));
+    cartItemsDiv.appendChild(cityDiv);
+    total += deliveryPrice;
+  }
+
+  // translate any new data-key elements inside the popup (in case language was changed earlier)
+  if (typeof setLanguage === "function") {
+    const lang = localStorage.getItem("lang") || "en";
+    setLanguage(lang);
+  }
+
   cart.forEach((item) => {
     const div = document.createElement("div");
     div.textContent = `${item.name} x ${item.qty} = ${item.price * item.qty} €`;
     cartItemsDiv.appendChild(div);
     total += item.price * item.qty;
   });
+
   totalPriceSpan.textContent = total.toFixed(2);
 }
 
@@ -485,7 +508,21 @@ deliveryMethod.addEventListener("change", () => {
 });
 
 // Päivitetään hinta, kun kaupunki valitaan
-citySelect.addEventListener("change", updateTotalPrice);
+citySelect.addEventListener("change", () => {
+  updateTotalPrice();
+  updateCartPopup();
+});
+
+// kun toimitustapa vaihtuu, popupin sisältökin voi muuttua
+deliveryMethod.addEventListener("change", () => {
+  if (deliveryMethod.value === "delivery") {
+    cityContainer.style.display = "block";
+  } else {
+    cityContainer.style.display = "none";
+  }
+  updateTotalPrice();
+  updateCartPopup();
+});
 
 function updateTotalPrice() {
   let total = cart.reduce((sum, c) => sum + c.price * c.qty, 0);
@@ -494,7 +531,7 @@ function updateTotalPrice() {
     const deliveryPrice = parseFloat(selectedCity.getAttribute("data-price")) || 0;
     total += deliveryPrice;
   }
-  totalPriceSpan.textContent = total.toFixed(2) + " €";
+  totalPriceSpan.textContent = total.toFixed(2) + " ";
 }
 
 viewCartBtn.addEventListener("click", () => {
