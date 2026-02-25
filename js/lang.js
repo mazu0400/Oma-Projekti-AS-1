@@ -58,7 +58,7 @@ If you are allergic to any of the allergens listed above, please place your orde
       "Products are made to order in Espoo. Please contact us by phone if you wish to place a special order.",
     toimituksesta: `Deliveries in the Espoo area are free of charge.
 Deliveries to the Helsinki metropolitan area are available for a small fee.
-For deliveries to the rest of Finland via Matkahuolto, please place your order and contact us by phone to arrange the delivery.`,
+For deliveries to the rest of Finland via Matkahuolto or in another way, please place your order and contact us by phone or email to arrange the delivery.`,
     etusivulle: "Back to home",
     Tietosuojaseloste: "Privacy Policy",
     addcard: "Add to Cart",
@@ -172,7 +172,7 @@ Jos olet allerginen yllä mainituille allergeeneille, tilaa puhelimitse soittama
       "Tuotteet valmistetaan tilauksesta Espoossa. Ota yhteyttä puhelimitse, jos haluat tehdä erikoistilauksen.",
     toimituksesta: `Toimitukset Espoon alueella ovat maksuttomia.
 Toimitukset Helsingin seudulle saatavilla pientä maksua vastaan.
-Muualle Suomeen Matkahuollon kautta, ota yhteyttä puhelimitse tilauksen yhteydessä.`,
+Muualle Suomeen Matkahuollon kautta tai muulla tavalla, ota yhteyttä puhelimitse tilauksen yhteydessä.`,
     etusivulle: "Takaisin etusivulle",
     Tietosuojaseloste: "Tietosuojaseloste",
     addcard: "Lisää ostoskoriin",
@@ -290,7 +290,7 @@ citynurmijarvi: "Lungsod ng Nurmijärvi",
       "Ang mga produkto ay ginawa ayon sa order sa Espoo. Mangyaring makipag-ugnayan sa telepono kung nais mong maglagay ng espesyal na order.",
     toimituksesta: `Ang paghahatid sa Espoo ay libre.
     Ang paghahatid sa Helsinki metro area ay magagamit sa maliit na bayad.
-    Para sa paghahatid sa ibang bahagi ng Finland sa pamamagitan ng Matkahuolto, mangyaring makipag-ugnayan sa telepono upang ayusin ang paghahatid.`,
+    Para sa paghahatid sa ibang bahagi ng Finland sa pamamagitan ng Matkahuolto o sa ibang paraan, mangyaring makipag-ugnayan sa telepono o ng email upang ayusin ang paghahatid.`,
     etusivulle: "Bumalik sa bahay",
     Tietosuojaseloste: "Patakaran sa Privacy",
     addcard: "Idagdag sa Cart",
