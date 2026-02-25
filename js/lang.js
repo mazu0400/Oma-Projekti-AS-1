@@ -32,6 +32,7 @@ const translations = {
     citytuusula: "Tuusula",
     cityjarvenpaa: "Järvenpää",
     citynurmijarvi: "Nurmijärvi",
+    cityEspoo: "Espoo",
     deliveryNote:
       "NOTE! (DELIVERIES AFTER 7 PM ON WEEKDAYS AND AFTER 10 AM ON WEEKENDS)",
     deliveryTime: "Desired Delivery Time",
@@ -143,6 +144,7 @@ cityvantaa: "Vantaa",
 citytuusula: "Tuusula",
 cityjarvenpaa: "Järvenpää",
 citynurmijarvi: "Nurmijärvi",
+    cityEspoo: "Espoo",
     sendMessageLabel: "Lähetä viesti",
   
     deliveryNote:
@@ -259,6 +261,7 @@ cityvantaa: "Lungsod ng Vantaa",
 citytuusula: "Lungsod ng Tuusula",
 cityjarvenpaa: "Lungsod ng Järvenpää",
 citynurmijarvi: "Lungsod ng Nurmijärvi",
+    cityEspoo: "Lungsod ng Espoo",
      sendMessageLabel: "Magpadala ng Mensahe",
     
     deliveryNote:

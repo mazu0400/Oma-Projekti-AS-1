@@ -134,6 +134,20 @@ const PRODUCTS = [
     img: "Image/Tuotteet/Image/classic.jpg",
     category: "ensaymada",
   },
+  {
+    id: "ens_almond-full",
+    name: "Ensaymada <br>Almond 1 box",
+    price: 25,
+    img: "Image/Tuotteet/Image/almond ensaymada.jpeg",
+    category: "ensaymada",
+  },
+    {
+    id: "ens_almond-half",
+    name: "Ensaymada <br>Almond ½ box",
+    price: 13,
+    img: "Image/Tuotteet/Image/almond ensaymada.jpeg",
+    category: "ensaymada",
+  },
 
   // HOPIA
   {
@@ -198,14 +212,14 @@ const PRODUCTS = [
     id: "milky_rolls",
     name: "Milky Cheese Rolls",
     price: 24,
-    img: "Image/Tuotteet/Image/milky-cheese-rolss-full-box.jpeg",
+    img: "Image/Tuotteet/Image/w-milkycheeserolssfull.jpeg",
     category: "other",
   },
   {
     id: "milky_rolls",
     name: "Milky Cheese Rolls ½ box",
     price: 12,
-    img: "Image/Tuotteet/Image/milky.cheese.rolls.jpg",
+    img: "Image/Tuotteet/Image/new-milky-cheese-rolls-puolikas.jpeg",
     category: "other",
   },
   {
@@ -283,14 +297,14 @@ const PRODUCTS = [
     id: "pandesal_classic",
     name: "Pandesal Classic",
     price: 10,
-    img: "Image/Tuotteet/Image/Pandesal.classic.jpg",
+    img: "Image/Tuotteet/Image/new-pandesall.jpeg",
     category: "other",
   },
   {
     id: "pandecoco",
     name: "Pandecoco",
     price: 10,
-    img: "Image/Tuotteet/Image/pandecoco.jpg",
+    img: "Image/Tuotteet/Image/new-pandecocco'.jpeg",
     category: "other",
   },
   {
@@ -362,6 +376,13 @@ const PRODUCTS = [
     name: "siopao 1 pcs",
     price: 2.5,
     img: "Image/Tuotteet/Image/siopao.jpeg",
+    category: "other",
+  },
+    {
+    id: "I tub leche flan",
+    name: "I tub leche flan 1 box",
+    price: 12,
+    img: "Image/Tuotteet/Image/i-tube-fan.jpeg",
     category: "other",
   },
 
