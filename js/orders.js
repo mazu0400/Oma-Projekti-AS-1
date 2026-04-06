@@ -222,6 +222,20 @@ const PRODUCTS = [
     img: "Image/Tuotteet/Image/new-milky-cheese-rolls-puolikas.jpeg",
     category: "other",
   },
+   {
+    id: "milky_ube_rolls",
+    name: "Milky Ube Rolls 1 box",
+    price: 26,
+    img: "Image/Tuotteet/Image/milky-ube-rolls.jpeg",
+    category: "other",
+  },
+    {
+    id: "milky_ube_rolls",
+    name: "Milky Ube Rolls ½ box",
+    price: 13,
+    img: "Image/Tuotteet/Image/milky-ube-rolls.jpeg",
+    category: "other",
+  },
   {
     id: "Cheese_roll_cake",
     name: "Cheese roll cake",
